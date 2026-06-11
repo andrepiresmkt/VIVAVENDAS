@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viva Vendas | Apartamentos à Venda em Niterói – Consultoria Imobiliária</title>
+  <meta name="description" content="Equipe especializada nos empreendimentos Conviva em Niterói. Studios, 1, 2 e 3 quartos a metros da praia em Camboinhas, Ingá, Piratininga e Icaraí.">
+  <link rel="canonical" href="https://vivavendas.com.br">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://vivavendas.com.br/#organization", "name": "Viva Vendas", "alternateName": "Viva Vendas Consultoria Imobiliária", "description": "Consultoria imobiliária exclusiva nos empreendimentos Conviva Engenharia em Niterói. Especialistas em Camboinhas, Icaraí, Ingá e Piratininga.", "url": "https://vivavendas.com.br", "telephone": "+55-21-96703-1691", "foundingDate": "2023", "areaServed": [{"@type": "City", "name": "Niterói", "sameAs": "https://www.wikidata.org/wiki/Q174762"}, {"@type": "Neighborhood", "name": "Camboinhas"}, {"@type": "Neighborhood", "name": "Icaraí"}, {"@type": "Neighborhood", "name": "Ingá"}, {"@type": "Neighborhood", "name": "Piratininga"}], "address": {"@type": "PostalAddress", "addressLocality": "Niterói", "addressRegion": "RJ", "addressCountry": "BR"}, "geo": {"@type": "GeoCoordinates", "latitude": -22.8838, "longitude": -43.103}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Empreendimentos Conviva em Niterói", "itemListElement": [{"@type": "Offer", "name": "Conviva Brise", "description": "Studios e apartamentos em Camboinhas"}, {"@type": "Offer", "name": "Life Camboinhas", "description": "Apartamentos à beira-mar em Camboinhas"}, {"@type": "Offer", "name": "Conviva Icaraí Imparato", "description": "Apartamentos no Icaraí"}, {"@type": "Offer", "name": "Life Ingá", "description": "Lançamento no Ingá, Niterói"}, {"@type": "Offer", "name": "Conviva Piratininga", "description": "Apartamentos em Piratininga"}]}, "knowsAbout": ["Imóveis em Niterói", "Empreendimentos Conviva Engenharia", "Investimento imobiliário em Niterói", "Apartamentos à beira-mar", "FGTS para compra de imóvel", "Financiamento imobiliário", "Aluguel por temporada em Niterói"], "sameAs": ["https://www.instagram.com/vivavendas.niteroi", "https://www.youtube.com/@vivavendas.niteroi", "https://www.facebook.com/vivavendas.niteroi", "https://www.zapimoveis.com.br/imobiliaria/viva-vendas", "https://www.vivareal.com.br/imobiliaria/viva-vendas"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quais bairros de Niterói têm apartamentos à venda próximos à praia?","acceptedAnswer":{"@type":"Answer","text":"Camboinhas, Ingá, Piratininga e Icaraí têm empreendimentos Conviva a menos de 650m do mar."}},{"@type":"Question","name":"Qual o preço de um studio em Niterói perto da praia?","acceptedAnswer":{"@type":"Answer","text":"Studios em Niterói próximos à praia partem de R$ 420.000 nos empreendimentos Conviva."}},{"@type":"Question","name":"Vale a pena comprar apartamento na planta em Niterói?","acceptedAnswer":{"@type":"Answer","text":"Sim. Imóveis em Niterói valorizaram 10,63% ao ano. Comprar na planta garante o melhor preço."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a;--surface:#111;--surface2:#181818;
+      --white:#f0ebe4;--muted:#888;--stroke:#1f1f1f;
+      --orange:#E8501E;--orange-l:#FF6B35;
+      --grad:linear-gradient(90deg,var(--orange-l),var(--orange));
+      --ease-expo:cubic-bezier(0.16,1,0.3,1);
+      --font-d:'Cinzel',serif;--font-b:'Inter',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:auto}
+    body{
+      background:var(--bg);color:var(--white);
+      font-family:var(--font-b);overflow-x:hidden;
+      cursor:none;
+    }
+    body.loading{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+
+    /* ──── CUSTOM CURSOR ──── */
+    .cursor-dot{
+      position:fixed;width:8px;height:8px;border-radius:50%;
+      background:var(--orange);pointer-events:none;z-index:10000;
+      transform:translate(-50%,-50%);
+      transition:width .2s,height .2s,background .2s;
+      will-change:transform;
+    }
+    .cursor-ring{
+      position:fixed;width:36px;height:36px;border-radius:50%;
+      border:1.5px solid rgba(232,80,30,.5);pointer-events:none;z-index:9999;
+      transform:translate(-50%,-50%);
+      transition:width .35s var(--ease-expo),height .35s var(--ease-expo),border-color .25s,opacity .25s;
+      will-change:transform;
+    }
+    .cursor-dot.hovered{width:12px;height:12px;background:var(--orange-l)}
+    .cursor-ring.hovered{width:52px;height:52px;border-color:rgba(232,80,30,.8)}
+    .cursor-dot.link-hover{width:5px;height:5px}
+    .cursor-ring.link-hover{width:44px;height:44px;background:rgba(232,80,30,.08)}
+    @media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}body{cursor:auto}}
+
+    /* ──── LOADER ──── */
+    #loader{
+      position:fixed;inset:0;z-index:9999;background:#000;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .ldr-inner{
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+    }
+    .ldr-v-clip{overflow:hidden;line-height:1.05}
+    .ldr-v{
+      display:block;
+      font-family:var(--font-d);font-size:clamp(5rem,14vw,10rem);
+      font-weight:700;color:#E8501E;letter-spacing:-.02em;
+      transform:translateY(115%);
+      animation:ldrUp .65s .1s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .ldr-name-clip{overflow:hidden;line-height:1.4;margin-top:-.15em}
+    .ldr-name{
+      display:block;
+      font-family:var(--font-d);font-size:clamp(.72rem,1.6vw,1rem);
+      font-weight:600;letter-spacing:.55em;color:rgba(240,235,228,.85);
+      transform:translateY(110%);
+      animation:ldrUp .5s .42s cubic-bezier(0.16,1,0.3,1) forwards;
+      padding-right:.55em;
+    }
+    .ldr-sep{
+      width:clamp(140px,18vw,240px);height:1px;
+      background:rgba(255,255,255,.07);
+      margin:1.5rem auto;overflow:hidden;
+    }
+    .ldr-sep-fill{
+      height:100%;
+      background:linear-gradient(90deg,#FF6B35,#E8501E);
+      transform:scaleX(0);transform-origin:left;
+      animation:ldrLine .5s .72s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .ldr-city-clip{overflow:hidden;line-height:1.5}
+    .ldr-city{
+      display:block;
+      font-size:.52rem;letter-spacing:.38em;text-transform:uppercase;
+      color:rgba(255,255,255,.2);
+      transform:translateY(110%);
+      animation:ldrUp .38s 1.0s ease forwards;
+      padding-right:.38em;
+    }
+    @keyframes ldrUp{to{transform:translateY(0)}}
+    @keyframes ldrLine{to{transform:scaleX(1)}}
+    #loader.exit{
+      transform:translateY(-100%);
+      transition:transform .8s cubic-bezier(.76,0,.24,1);
+    }
+
+    /* ──── NAV ──── */
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      display:flex;justify-content:center;padding:1.2rem 1rem;
+      pointer-events:none;
+    }
+    .nav-pill{
+      display:inline-flex;align-items:center;gap:.4rem;padding:.35rem;
+      background:rgba(10,10,10,.65);backdrop-filter:blur(22px);
+      border:1px solid rgba(255,255,255,.06);border-radius:50px;
+      pointer-events:auto;transition:all .3s;
+    }
+    .nav-pill.scrolled{background:rgba(10,10,10,.9);border-color:var(--stroke);box-shadow:0 4px 28px rgba(0,0,0,.6)}
+    .nav-logo-c{
+      width:34px;height:34px;border-radius:50%;background:var(--grad);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-d);font-size:.72rem;font-weight:700;color:#fff;
+      transition:transform .3s var(--ease-expo);
+    }
+    .nav-logo-c:hover{transform:scale(1.12)}
+    .nav-div{width:1px;height:18px;background:var(--stroke);margin:0 .2rem}
+    .nav-links{display:flex;list-style:none;gap:.2rem}
+    .nav-link{
+      display:block;padding:.45rem .9rem;font-size:.77rem;font-weight:500;
+      color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;white-space:nowrap;
+    }
+    .nav-link:hover,.nav-link.active{color:var(--white);background:var(--stroke)}
+    .nav-cta{
+      position:relative;display:inline-flex;align-items:center;gap:.3rem;
+      padding:.45rem 1.1rem;font-size:.77rem;font-weight:500;
+      color:var(--white);border-radius:50px;overflow:hidden;white-space:nowrap;
+    }
+    .nav-cta::before{content:'';position:absolute;inset:-1px;border-radius:50px;background:var(--grad);opacity:0;transition:opacity .3s;z-index:-1}
+    .nav-cta::after{content:'';position:absolute;inset:0;border-radius:50px;background:var(--surface);z-index:-1}
+    .nav-cta:hover::before{opacity:1}
+
+    /* ──── HERO ──── */
+    .hero{
+      position:relative;height:100vh;min-height:700px;
+      overflow:hidden;
+    }
+    /* Layer 1: hero video */
+    .hero-canvas{
+      position:absolute;inset:0;
+      width:100%;height:100%;display:block;
+      object-fit:cover;
+      filter:brightness(1.12) contrast(1.04);
+    }
+    /* Layer 2: dark gradient overlay — stronger on left for text readability */
+    .hero-ov{
+      position:absolute;inset:0;
+      background:linear-gradient(to right,rgba(0,0,0,.55) 0%,rgba(0,0,0,.32) 38%,rgba(0,0,0,.06) 65%,rgba(0,0,0,.0) 100%);
+      z-index:2;
+    }
+    /* Layer 3: bottom fade — extends into metrics seamlessly */
+    .hero-fade-b{
+      position:absolute;bottom:0;left:0;right:0;height:45%;z-index:3;
+      background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,.85) 35%,rgba(10,10,10,.35) 70%,transparent 100%);
+    }
+    /* Layer 3b: hero exit curtain (animated by GSAP at end of pin) */
+    .hero-curtain{
+      position:absolute;inset:0;z-index:4;
+      background:rgba(10,10,10,1);
+      opacity:0;pointer-events:none;
+    }
+    /* Layer 5: end-of-scroll impact text */
+    #heroImpact{
+      position:absolute;inset:0;z-index:6;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;
+      opacity:0;pointer-events:none;
+      padding:0 1rem;
+    }
+    .hi-eyebrow{
+      font-family:'Inter',sans-serif;
+      font-size:clamp(.65rem,1.2vw,.82rem);
+      letter-spacing:.45em;text-transform:uppercase;
+      color:var(--orange);margin-bottom:1.6rem;
+    }
+    .hi-headline{
+      font-family:'Cinzel',serif;
+      font-size:clamp(3rem,10vw,8.5rem);
+      font-weight:700;line-height:.92;
+      color:#fff;
+      text-shadow:0 4px 60px rgba(0,0,0,.7);
+      letter-spacing:.03em;
+    }
+    .hi-sub{
+      font-family:'Inter',sans-serif;
+      font-size:clamp(.6rem,1vw,.78rem);
+      letter-spacing:.38em;text-transform:uppercase;
+      color:rgba(255,255,255,.42);margin-top:2rem;
+    }
+    /* Layer 4: orange stripe left */
+    .hero-stripe{
+      position:absolute;left:0;top:0;bottom:0;width:5px;z-index:4;
+      background:linear-gradient(to bottom,var(--orange),var(--orange-l),var(--orange));
+    }
+    /* ── Two-column hero layout ── */
+    .hero-inner{
+      position:absolute;inset:0;z-index:5;
+      display:flex;align-items:center;
+      padding:0 7%;
+    }
+    .hero-left{
+      width:52%;max-width:640px;
+      padding:10vh 0 12vh;
+    }
+    .hero-right{flex:1;min-height:1px}
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:rgba(232,80,30,.12);border:1px solid rgba(232,80,30,.3);
+      padding:.35rem .9rem;border-radius:50px;margin-bottom:2rem;
+      opacity:0;transform:translateY(16px);transition:all .8s .2s ease;
+    }
+    .hero.started .hero-badge{opacity:1;transform:translateY(0)}
+    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+    .hero-badge span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:600}
+    .h1-wrap{margin-bottom:1.5rem}
+    .t-clip{overflow:hidden}
+    .h1-line{
+      display:block;font-family:var(--font-d);
+      font-weight:700;letter-spacing:-.03em;line-height:.88;color:var(--white);
+      transform:translateY(108%);
+      transition:transform 1.4s var(--ease-expo);
+      will-change:transform;
+      text-shadow:0 2px 32px rgba(0,0,0,.6),0 0 80px rgba(0,0,0,.4);
+    }
+    .h1-line-1{font-size:clamp(3rem,5.5vw,6.2rem);transition-delay:.35s;color:var(--orange);font-weight:900}
+    .h1-line-2{font-size:clamp(1.4rem,2.4vw,2.7rem);font-style:italic;font-weight:400;color:rgba(240,235,228,.75);transition-delay:.5s}
+    .h1-line-3{font-size:clamp(3rem,5.5vw,6.2rem);transition-delay:.42s;color:var(--orange);font-weight:900}
+    .hero.started .h1-line{transform:translateY(0)}
+    .hero-desc{
+      font-size:.88rem;font-weight:300;color:rgba(240,235,228,.5);
+      line-height:1.85;max-width:430px;margin-bottom:1.6rem;
+      opacity:0;transform:translateY(20px);
+      transition:all .9s .7s ease;
+    }
+    .hero.started .hero-desc{opacity:1;transform:translateY(0)}
+    .hero-acts{
+      display:flex;gap:.8rem;flex-wrap:wrap;
+      opacity:0;transform:translateY(20px);
+      transition:all .9s .88s ease;
+    }
+    .hero.started .hero-acts{opacity:1;transform:translateY(0)}
+    /* ── Feature highlights ── */
+    .hero-features{
+      display:flex;flex-direction:column;gap:.85rem;
+      margin-bottom:2rem;
+      opacity:0;transform:translateY(18px);
+      transition:all .9s .78s ease;
+    }
+    .hero.started .hero-features{opacity:1;transform:translateY(0)}
+    .hf-item{display:flex;align-items:flex-start;gap:.85rem}
+    .hf-icon{
+      width:36px;height:36px;border-radius:8px;flex-shrink:0;
+      background:rgba(232,80,30,.1);border:1px solid rgba(232,80,30,.22);
+      display:flex;align-items:center;justify-content:center;
+      transition:background .25s,border-color .25s;
+    }
+    .hf-item:hover .hf-icon{background:rgba(232,80,30,.2);border-color:rgba(232,80,30,.45)}
+    .hf-icon svg{width:15px;height:15px;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .hf-title{font-size:.78rem;font-weight:600;color:var(--white);margin-bottom:.12rem;letter-spacing:.01em}
+    .hf-text{font-size:.69rem;color:rgba(240,235,228,.4);line-height:1.55}
+    /* ── Scroll-scene headlines ── */
+    .hero-headlines{display:grid;grid-template-areas:"scene";margin-bottom:1.8rem}
+    .hl-scene{grid-area:scene;will-change:transform,opacity}
+    .btn-s{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.85rem 2rem;background:var(--white);color:#000;
+      font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;
+      font-weight:600;border-radius:50px;transition:all .3s var(--ease-expo);
+    }
+    .btn-s:hover{background:var(--orange);color:#fff;transform:scale(1.04)}
+    .btn-g{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.85rem 2rem;border:1px solid rgba(255,255,255,.15);
+      color:var(--white);font-size:.78rem;letter-spacing:.07em;
+      text-transform:uppercase;font-weight:500;border-radius:50px;
+      background:rgba(255,255,255,.04);backdrop-filter:blur(8px);transition:all .3s;
+    }
+    .btn-g:hover{border-color:var(--orange);color:var(--orange)}
+    /* hero side numbers */
+    .hero-nums{
+      position:absolute;right:6%;bottom:3rem;z-index:5;
+      display:flex;align-items:center;gap:2.5rem;
+      opacity:0;transition:opacity .9s 1s ease;
+    }
+    .hero.started .hero-nums{opacity:1}
+    .hn-val{font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--white);line-height:1}
+    .hn-val span{font-size:.55em;color:var(--orange)}
+    .hn-lbl{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.2rem}
+    .hn-sep{width:1px;height:36px;background:rgba(255,255,255,.1)}
+    /* scroll arrow */
+    .scroll-prompt{
+      position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);
+      z-index:4;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+      opacity:0;transition:opacity .9s 1.2s ease;
+    }
+    .hero.started .scroll-prompt{opacity:1}
+    .sp-txt{font-size:.58rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+    .sp-line{width:1px;height:48px;background:rgba(255,255,255,.1);overflow:hidden;position:relative}
+    .sp-dot{position:absolute;top:0;left:0;right:0;height:30%;background:var(--orange);animation:sDot 1.6s ease-in-out infinite}
+    @keyframes sDot{0%{transform:translateY(-100%)}100%{transform:translateY(400%)}}
+
+    /* ──── METRICS BAND ──── */
+    .metrics{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:3rem 6%}
+    .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+    .m-num{font-family:var(--font-d);font-size:2.8rem;font-weight:700;color:var(--orange);line-height:1}
+    .m-div{width:28px;height:2px;background:var(--orange);margin:.5rem auto}
+    .m-lbl{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+    /* ──── PROPERTIES ──── */
+    .props{background:var(--bg);padding:7rem 6%}
+    .props-hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:4rem}
+    .props-title{font-family:var(--font-d);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:600;color:var(--white);line-height:1.08}
+    .props-title em{font-style:italic;font-weight:400;color:rgba(240,235,228,.5)}
+    .view-all-btn{
+      font-size:.76rem;letter-spacing:.08em;color:var(--orange);
+      border:1px solid rgba(232,80,30,.35);padding:.55rem 1.3rem;
+      border-radius:50px;transition:all .3s;white-space:nowrap;
+    }
+    .view-all-btn:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+    /* Filter */
+    .filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+    .fbtn{
+      padding:.45rem 1.1rem;font-size:.74rem;letter-spacing:.08em;
+      border:1px solid var(--stroke);color:var(--muted);border-radius:50px;
+      background:none;font-family:var(--font-b);cursor:pointer;transition:all .25s;
+    }
+    .fbtn.on,.fbtn:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+    /* Property cards */
+    .props-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
+    .pc{
+      position:relative;border-radius:16px;overflow:hidden;
+      background:var(--surface2);border:1px solid var(--stroke);
+      transition:transform .4s var(--ease-expo),border-color .3s,box-shadow .4s;
+      cursor:pointer;
+    }
+    .pc:hover{transform:translateY(-8px);border-color:rgba(232,80,30,.25);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+    .pc-img{
+      height:240px;overflow:hidden;position:relative;
+      background:var(--surface);
+    }
+    .pc-img img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .7s var(--ease-expo);
+    }
+    .pc:hover .pc-img img{transform:scale(1.06)}
+    /* Entrance handled by GSAP */
+    .pc{transition:transform .4s var(--ease-expo),border-color .3s,box-shadow .4s}
+    .pc-tag{
+      position:absolute;top:.9rem;left:.9rem;
+      background:var(--orange);color:#fff;
+      padding:.2rem .65rem;border-radius:50px;
+      font-size:.62rem;letter-spacing:.1em;font-weight:600;text-transform:uppercase;
+    }
+    .pc-dist{
+      position:absolute;bottom:.9rem;right:.9rem;
+      background:rgba(0,0,0,.7);backdrop-filter:blur(8px);
+      color:var(--white);padding:.25rem .7rem;border-radius:50px;
+      font-size:.7rem;font-weight:500;
+    }
+    .pc-body{padding:1.4rem}
+    .pc-name{font-family:var(--font-d);font-size:1.05rem;font-weight:600;margin-bottom:.25rem}
+    .pc-loc{font-size:.75rem;color:var(--muted);margin-bottom:.9rem;display:flex;align-items:center;gap:.3rem}
+    .pc-feats{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.1rem}
+    .pc-feat{font-size:.7rem;color:var(--muted);background:var(--surface);padding:.18rem .55rem;border-radius:50px;border:1px solid var(--stroke)}
+    .pc-foot{border-top:1px solid var(--stroke);padding-top:1.1rem;display:flex;justify-content:space-between;align-items:center}
+    .pc-price-lbl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .pc-price-val{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--orange)}
+    .pc-btn{
+      font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
+      color:var(--orange);border:1px solid rgba(232,80,30,.35);
+      padding:.4rem .9rem;border-radius:50px;transition:all .25s;
+      background:none;font-family:var(--font-b);cursor:pointer;
+    }
+    .pc-btn:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+    /* ── Card hover overlay ── */
+    .pc-overlay{
+      position:absolute;inset:0;z-index:2;
+      background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.28) 52%,transparent 100%);
+      opacity:0;transition:opacity .5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pc:hover .pc-overlay{opacity:1}
+    .pc-overlay-cta{
+      position:absolute;bottom:1.3rem;left:50%;
+      transform:translateX(-50%) translateY(16px);
+      white-space:nowrap;
+      font-family:var(--font-d);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+      color:#fff;display:flex;align-items:center;gap:.45rem;
+      transition:transform .5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .pc:hover .pc-overlay-cta{transform:translateX(-50%) translateY(0)}
+    .pc-overlay-arrow{display:inline-block;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+    .pc:hover .pc-overlay-arrow{transform:translateX(4px)}
+
+    /* ── Sliding filter indicator ── */
+    .filter-row{position:relative}
+    .filter-ind{
+      position:absolute;top:0;left:0;
+      background:var(--orange);border-radius:50px;
+      transition:all .38s cubic-bezier(0.16,1,0.3,1);
+      pointer-events:none;z-index:0;
+    }
+    .fbtn{position:relative;z-index:1}
+    .fbtn.on{color:#fff!important;border-color:transparent!important;background:transparent!important}
+    .fbtn:not(.on):hover{background:rgba(232,80,30,.1);border-color:rgba(232,80,30,.3);color:var(--orange)}
+
+    /* ── Why points staggered reveal ── */
+    .why-pt{opacity:0;transform:translateX(-28px);transition:opacity .75s cubic-bezier(0.16,1,0.3,1),transform .75s cubic-bezier(0.16,1,0.3,1)}
+    .why-pt.vis{opacity:1;transform:translateX(0)}
+    .why-pt:nth-child(2){transition-delay:.12s}
+    .why-pt:nth-child(3){transition-delay:.24s}
+    /* Why icon pulse on hover */
+    .why-pt-icon{transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+    .why-pt:hover .why-pt-icon{transform:scale(1.25) rotate(-5deg)}
+
+    /* ── Props title line reveal ── */
+    .props-title-clip{overflow:hidden;display:block}
+    .props-title-inner{display:block;transform:translateY(105%);transition:transform .85s cubic-bezier(0.16,1,0.3,1)}
+    .props-title-inner.vis{transform:translateY(0)}
+    .props-title-inner.d1{transition-delay:.12s}
+
+    /* ──── WHY NITERÓI ──── */
+    .why{background:var(--surface);padding:7rem 6%}
+    .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .why-img-wrap{
+      position:relative;border-radius:16px;overflow:hidden;
+      aspect-ratio:3/4;background:var(--surface2);
+    }
+    .why-img{width:100%;height:100%;object-fit:cover;will-change:transform}
+    .why-float{
+      position:absolute;bottom:-1rem;right:-1.5rem;
+      background:var(--surface);border-radius:14px;
+      padding:1.2rem 1.6rem;border:1px solid var(--stroke);
+      box-shadow:0 20px 50px rgba(0,0,0,.5);
+    }
+    .why-float-val{font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--orange);line-height:1}
+    .why-float-lbl{font-size:.68rem;color:var(--muted);margin-top:.2rem;letter-spacing:.05em}
+    .why-points{display:flex;flex-direction:column;gap:1.5rem;margin:2.5rem 0}
+    .why-pt{display:flex;gap:1rem;align-items:flex-start}
+    .why-pt-icon{
+      width:44px;height:44px;border-radius:12px;flex-shrink:0;
+      background:rgba(232,80,30,.1);border:1px solid rgba(232,80,30,.2);
+      display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+    }
+    .why-pt-title{font-size:.9rem;font-weight:600;margin-bottom:.2rem;color:var(--white)}
+    .why-pt-text{font-size:.82rem;color:var(--muted);font-weight:300;line-height:1.7}
+
+    /* ──── TESTIMONIALS ──── */
+    .testi{background:var(--bg);padding:6rem 6%;overflow:hidden}
+    .testi-track-wrap{overflow:hidden}
+    .testi-track{display:flex;gap:1.2rem;animation:slide 30s linear infinite;width:max-content}
+    .testi-track:hover{animation-play-state:paused}
+    @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .testi-card{
+      width:360px;flex-shrink:0;
+      background:var(--surface);border:1px solid var(--stroke);
+      border-radius:16px;padding:2rem;
+    }
+    .t-stars{color:var(--orange);letter-spacing:.1em;margin-bottom:1rem;font-size:1rem}
+    .t-text{font-size:.88rem;color:rgba(240,235,228,.6);font-style:italic;line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+    .t-author{display:flex;align-items:center;gap:.7rem}
+    .t-avatar{
+      width:42px;height:42px;border-radius:50%;
+      background:var(--grad);display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-d);font-weight:700;color:#fff;font-size:1rem;flex-shrink:0;
+    }
+    .t-name{font-size:.85rem;font-weight:600;color:var(--white)}
+    .t-role{font-size:.72rem;color:var(--muted)}
+
+    /* ──── INVEST PITCH ──── */
+    .invest{
+      background:var(--orange);color:#fff;padding:6rem 6%;
+      position:relative;overflow:hidden;
+    }
+    .invest::before{
+      content:'10,6%';position:absolute;font-family:var(--font-d);
+      font-size:28vw;font-weight:700;color:rgba(255,255,255,.06);
+      right:-5%;top:50%;transform:translateY(-50%);pointer-events:none;
+      letter-spacing:-.04em;line-height:1;
+    }
+    .invest-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative}
+    .invest-title{font-family:var(--font-d);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem}
+    .invest-title em{font-style:italic;font-weight:400}
+    .invest-text{font-size:.9rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.8);margin-bottom:2rem}
+    .invest-acts{display:flex;gap:.8rem;flex-wrap:wrap}
+    .btn-wi{
+      display:inline-flex;align-items:center;padding:.9rem 2rem;
+      background:#fff;color:#000;font-size:.78rem;letter-spacing:.07em;
+      text-transform:uppercase;font-weight:600;border-radius:50px;transition:all .3s;
+    }
+    .btn-wi:hover{background:var(--bg);color:#fff;transform:translateY(-2px)}
+    .btn-wo{
+      display:inline-flex;align-items:center;padding:.9rem 2rem;
+      border:1px solid rgba(255,255,255,.4);color:#fff;
+      font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;
+      font-weight:500;border-radius:50px;transition:all .3s;
+    }
+    .btn-wo:hover{background:rgba(255,255,255,.12);border-color:#fff}
+    .invest-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .invest-stat{background:rgba(255,255,255,.1);border-radius:14px;padding:1.5rem;border:1px solid rgba(255,255,255,.15)}
+    .is-val{font-family:var(--font-d);font-size:2rem;font-weight:700;line-height:1;margin-bottom:.3rem}
+    .is-lbl{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+
+    /* ──── FAQ ──── */
+    .faq{background:var(--surface);padding:6rem 6%}
+    .faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+    .faq-q{
+      width:100%;text-align:left;padding:1.2rem 0;
+      display:flex;justify-content:space-between;align-items:center;gap:1rem;
+      font-size:.9rem;font-weight:500;cursor:pointer;color:rgba(240,235,228,.75);
+      transition:color .3s;background:none;border:none;font-family:var(--font-b);
+    }
+    .faq-q:hover{color:var(--white)}
+    .faq-icon{
+      width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      transition:all .3s;font-size:.85rem;color:rgba(255,255,255,.5);
+    }
+    .faq-item.open .faq-icon{background:var(--orange);border-color:var(--orange);color:#fff;transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.84rem;color:var(--muted);font-weight:300;line-height:1.8}
+    .faq-item.open .faq-a{max-height:300px;padding-bottom:1.2rem}
+
+    /* ──── CTA FINAL ──── */
+    .final-cta{
+      background:var(--bg);padding:8rem 6%;text-align:center;
+      position:relative;overflow:hidden;
+    }
+    .fc-bg{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(232,80,30,.06) 0%,transparent 70%);
+    }
+    .fc-eyebrow{font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:block}
+    .fc-title{font-family:var(--font-d);font-size:clamp(2rem,5vw,4.5rem);font-weight:600;color:var(--white);line-height:1.08;margin-bottom:1.2rem;position:relative}
+    .fc-title em{font-style:italic;color:var(--orange);font-weight:400}
+    .fc-sub{font-size:.9rem;color:var(--muted);max-width:480px;margin:0 auto 3rem;line-height:1.75;font-weight:300;position:relative}
+    .fc-acts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;margin-bottom:2rem}
+    .fc-trust{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;position:relative}
+    .fc-trust-item{display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:rgba(255,255,255,.3)}
+    .fc-trust-item::before{content:'✓';color:var(--orange)}
+
+    /* ──── FOOTER ──── */
+    .footer{background:#000;padding:3.5rem 6% 2rem;border-top:1px solid var(--stroke)}
+    .ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid var(--stroke)}
+    .ft-brand{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem}
+    .ft-logo{width:28px;height:28px;border-radius:7px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:#fff}
+    .ft-name{font-family:var(--font-d);font-size:1rem;font-weight:600;color:var(--white);letter-spacing:.07em}
+    .ft-name span{color:var(--orange)}
+    .ft-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:1.5rem}
+    .ft-soc{display:flex;gap:.5rem}
+    .ft-soc a{width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--muted);transition:all .3s}
+    .ft-soc a:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+    .ft-col h4{font-family:var(--font-d);font-size:.73rem;letter-spacing:.14em;color:var(--orange);margin-bottom:1rem}
+    .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+    .ft-col a{font-size:.78rem;color:var(--muted);transition:color .3s;font-weight:300}
+    .ft-col a:hover{color:var(--white)}
+    .ft-bot{border-top:1px solid var(--stroke);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.7rem;color:rgba(255,255,255,.2)}
+    .ft-bot a{color:var(--orange)}
+
+    /* ──── GRAIN OVERLAY ──── */
+    .grain{
+      position:fixed;inset:0;z-index:9997;pointer-events:none;
+      opacity:.032;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat:repeat;
+      background-size:200px 200px;
+      animation:grainShift 0.4s steps(1) infinite;
+    }
+    @keyframes grainShift{
+      0%{transform:translate(0,0)}
+      25%{transform:translate(-3%,-4%)}
+      50%{transform:translate(5%,2%)}
+      75%{transform:translate(-2%,5%)}
+      100%{transform:translate(4%,-3%)}
+    }
+
+    /* ──── SCROLL PROGRESS ──── */
+    .scroll-prog{
+      position:fixed;top:0;left:0;height:2px;z-index:10001;
+      background:linear-gradient(90deg,var(--orange-l),var(--orange));
+      width:0%;transform-origin:left;
+      transition:width .08s linear;
+    }
+
+    /* ──── HERO SWEEP ──── */
+    .hero-ov::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.025) 50%,transparent 60%);
+      transform:translateX(-120%);
+      animation:heroSweep 6s 2.5s ease-in-out infinite;
+    }
+    @keyframes heroSweep{
+      0%{transform:translateX(-120%)}
+      40%,100%{transform:translateX(220%)}
+    }
+
+    /* ──── WA ──── */
+    .wa{position:fixed;bottom:2rem;right:2rem;z-index:998;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.45);animation:wap 3s infinite;transition:transform .3s}
+    .wa:hover{transform:scale(1.1)}
+    .wa svg{width:26px;height:26px;fill:white}
+    @keyframes wap{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.45)}50%{box-shadow:0 6px 38px rgba(37,211,102,.7),0 0 0 7px rgba(37,211,102,.1)}}
+
+    /* ──── REVEAL UTILS ──── */
+    .rv{opacity:0;transform:translateY(48px);transition:opacity .9s ease,transform .9s var(--ease-expo)}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .rv-l{opacity:0;transform:translateX(-48px);transition:opacity .9s ease,transform .9s var(--ease-expo)}
+    .rv-l.vis{opacity:1;transform:translateX(0)}
+    .rv-r{opacity:0;transform:translateX(48px);transition:opacity .9s ease,transform .9s var(--ease-expo)}
+    .rv-r.vis{opacity:1;transform:translateX(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+    /* ──── RESPONSIVE ──── */
+    @media(max-width:1024px){
+      .nav-links{display:none}
+    }
+    @media(max-width:900px){
+      .hero-left{width:68%}
+    }
+    @media(max-width:768px){
+      .metrics-grid{grid-template-columns:repeat(2,1fr)}
+      .why-inner,.invest-inner{grid-template-columns:1fr;gap:2.5rem}
+      .faq-inner{grid-template-columns:1fr}
+      .ft-grid{grid-template-columns:1fr 1fr}
+      .hero-nums{display:none}
+      .scroll-prompt{display:none}
+      .invest::before{font-size:40vw}
+      .hero-left{width:88%}
+      .hero-right{display:none}
+    }
+    @media(max-width:480px){
+      .hero-left{width:100%;padding:0 0 10vh}
+      .hero-inner{padding:0 5%}
+    }
+    @media(max-width:600px){
+      .ft-grid{grid-template-columns:1fr}
+      .metrics-grid{grid-template-columns:repeat(2,1fr)}
+    }
+  
+  /* MARQUEE */
+  .vv-marquee-wrap{background:var(--surface);border-top:1px solid var(--stroke);overflow:hidden;padding:1.4rem 0;white-space:nowrap}
+  .vv-marquee{display:flex;overflow:hidden}.vv-marquee-track{display:flex;align-items:center;gap:0;white-space:nowrap;will-change:transform}
+  .vv-marquee-track span{font-family:var(--font-d);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,235,228,.18);padding:0 2.2rem}
+  .vv-marquee-track span em{color:var(--orange);font-style:normal}
+
+  
+
+    /* ── Hero Poster: beautiful image shown before video reveals ── */
+    #heroPoster{
+      position:absolute;inset:0;z-index:1;
+      overflow:hidden;will-change:opacity;
+    }
+    #heroPoster img{
+      width:100%;height:100%;object-fit:cover;
+      object-position:center 55%;
+      transform:scale(1.06);
+      animation:posterKB 9s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+    }
+    @keyframes posterKB{
+      0%  {transform:scale(1.06) translate(0,0)}
+      100%{transform:scale(1.0)  translate(-1%,-.5%)}
+    }
+    /* Warm vignette inside the poster itself */
+    #heroPoster::after{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 85% 80% at 60% 50%,
+        transparent 40%,
+        rgba(10,10,10,.4) 100%
+      );
+    }
+
+    /* BAIRROS DROPDOWN */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.3rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arrow{font-size:.55rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arrow{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);min-width:180px;background:rgba(10,10,10,.95);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.5rem;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateX(-50%) translateY(-6px);z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:6px;height:6px;border-radius:50%;background:#E8501E;flex-shrink:0}
+  
+    /* BAIRROS DROPDOWN */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.3rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arrow{font-size:.55rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arrow{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);min-width:180px;background:rgba(10,10,10,.95);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.5rem;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateX(-50%) translateY(-6px);z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:6px;height:6px;border-radius:50%;background:#E8501E;flex-shrink:0}
+  
+    /* BAIRROS + MAIS dropdowns */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.28rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arr{font-size:.5rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arr{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%) translateY(-6px);min-width:175px;background:rgba(10,10,10,.97);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.45rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-menu::before{content:'';position:absolute;bottom:100%;left:0;right:0;height:.6rem}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.6rem 1rem;font-size:.76rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap;text-decoration:none}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:5px;height:5px;border-radius:50%;background:#E8501E;flex-shrink:0}
+    .nav-drop-sep{height:1px;background:#1f1f1f;margin:.35rem .5rem}
+  
+    .vv-h1-seo{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Viva Vendas">
+  <meta property="og:title" content="Apartamentos à Venda em Niterói — Viva Vendas">
+  <meta property="og:description" content="Consultoria imobiliária exclusiva nos empreendimentos Conviva em Niterói. Studios, 1, 2 e 3 quartos a metros da praia em Camboinhas, Icaraí e Piratininga.">
+  <meta property="og:url" content="https://vivavendas.com.br">
+  <meta property="og:image" content="https://vivavendas.com.br/img/og-cover.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apartamentos à Venda em Niterói — Viva Vendas">
+  <meta name="twitter:description" content="Consultoria imobiliária exclusiva nos empreendimentos Conviva em Niterói. Studios, 1, 2 e 3 quartos a metros da praia em Camboinhas, Icaraí e Piratininga.">
+  <meta name="twitter:image" content="https://vivavendas.com.br/img/og-cover.jpg">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://vivavendas.com.br", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hero-title", ".s-title", ".faq-a p", ".hero-sub"]}}</script>
+<noscript><style>.rv,.rv-l,.rv-r{opacity:1!important;transform:none!important;transition:none!important}.hero-title,.hero-sub,.hero-kicker{transform:none!important;transition:none!important}.t-clip{overflow:visible!important}#loader{display:none!important}body.loading{overflow:auto!important}</style></noscript>
+</head>
+<body class="loading">
+<h1 class="vv-h1-seo">Apartamentos à Venda em Niterói — Viva Vendas</h1>
+
+<!-- ──── GRAIN + SCROLL PROGRESS ──── -->
+<div class="grain"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- ──── CURSOR ──── -->
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"></div>
+
+<!-- ──── LOADER ──── -->
+<div id="loader">
+  <div class="ldr-inner">
+    <div class="ldr-v-clip"><span class="ldr-v">V</span></div>
+    <div class="ldr-name-clip"><span class="ldr-name">VIVA VENDAS</span></div>
+    <div class="ldr-sep"><div class="ldr-sep-fill"></div></div>
+    <div class="ldr-city-clip"><span class="ldr-city">NITERÓI · VIVA VENDAS</span></div>
+  </div>
+</div>
+
+<!-- ──── NAV ──── -->
+<nav class="nav">
+  <div class="nav-pill" id="navPill">
+    <a href="index.html" class="nav-logo-c" style="text-decoration:none">V</a>
+    <div class="nav-div"></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="#imoveis" class="nav-link">Imóveis</a></li>
+      <li><a href="investir.html" class="nav-link">Investir</a></li>
+      <li><a href="calculadora.html" class="nav-link">Calculadora</a></li>
+      <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+    
+      <li class="nav-drop">
+        <button class="nav-drop-btn">Bairros <span class="nav-drop-arr">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="bairros/camboinhas.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Camboinhas</a>
+          <a href="bairros/icarai.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Icaraí</a>
+          <a href="bairros/inga.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Ingá</a>
+          <a href="bairros/piratininga.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Piratininga</a>
+        </div>
+      </li>
+      <li class="nav-drop">
+        <button class="nav-drop-btn">Mais <span class="nav-drop-arr">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="comparativo.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Comparativo</a>
+          <a href="financiamento.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Financiamento</a>
+          <a href="fgts.html" class="nav-drop-item"><span class="nav-drop-dot"></span>FGTS</a>
+          <a href="aluguel-temporada.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Aluguel Temporada</a>
+          <a href="faq/index.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Perguntas Frequentes</a>
+          <div class="nav-drop-sep"></div>
+          <a href="sobre.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Sobre a Viva Vendas</a>
+          <a href="conviva.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Construtora Parceira</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-div"></div>
+    <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Olá! Vim pelo site Viva Vendas." target="_blank" class="nav-cta">Falar com Especialista ↗</a>
+  </div>
+</nav>
+
+<!-- ──── HERO ──── -->
+<section class="hero" id="hero">
+  <video class="hero-canvas" id="heroVideo" muted playsinline preload="auto" src="hero-video.mp4"></video>
+  <div id="heroPoster">
+    <img src="img/wp/hero-poster.jpg"
+         alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-fade-b"></div>
+  <div class="hero-curtain" id="heroCurtain"></div>
+  <div id="heroImpact">
+    <p class="hi-eyebrow">Pronto para dar o próximo passo?</p>
+    <h2 class="hi-headline">ENCONTRE<br>O SEU LAR</h2>
+    <p class="hi-sub">Niterói &middot; Camboinhas &middot; Icaraí &middot; Piratininga</p>
+  </div>
+  <div class="hero-stripe"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge"><div class="hero-badge-dot"></div><span>Consultoria Imobiliária Exclusiva · Niterói, RJ</span></div>
+
+      <!-- Scene container: 3 headlines rotate on scroll -->
+      <div class="hero-headlines">
+
+        <!-- Cena 1: Desejo de morar -->
+        <div class="hl-scene hl-scene-1">
+          <div class="h1-wrap">
+            <div class="t-clip"><span class="h1-line h1-line-1">VIVA</span></div>
+            <div class="t-clip"><span class="h1-line h1-line-2">onde o mar</span></div>
+            <div class="t-clip"><span class="h1-line h1-line-3">INSPIRA</span></div>
+          </div>
+          <p class="hero-desc">Desperte para a brisa do mar todos os dias. Studios, 1, 2 e 3 quartos nos endereços mais desejados de Niterói.</p>
+        </div>
+
+        <!-- Cena 2: Lifestyle / sonho -->
+        <div class="hl-scene hl-scene-2">
+          <div class="h1-wrap">
+            <div class="t-clip"><span class="h1-line h1-line-1">SEU LAR</span></div>
+            <div class="t-clip"><span class="h1-line h1-line-2">à beira da</span></div>
+            <div class="t-clip"><span class="h1-line h1-line-3">PRAIA</span></div>
+          </div>
+          <p class="hero-desc">Camboinhas, Ingá, Piratininga e Icaraí — onde cada amanhecer vale mais do que qualquer conquista.</p>
+        </div>
+
+        <!-- Cena 3: Investidor -->
+        <div class="hl-scene hl-scene-3">
+          <div class="h1-wrap">
+            <div class="t-clip"><span class="h1-line h1-line-1">INVISTA</span></div>
+            <div class="t-clip"><span class="h1-line h1-line-2">onde o retorno é</span></div>
+            <div class="t-clip"><span class="h1-line h1-line-3">CERTO</span></div>
+          </div>
+          <p class="hero-desc">10,6% ao ano, líder no FIPE/ZAP. Seu patrimônio crescendo onde o mercado mais valoriza.</p>
+        </div>
+
+      </div><!-- /hero-headlines -->
+
+      <div class="hero-features">
+        <div class="hf-item">
+          <div class="hf-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="hf-title">A 150m da Praia</div>
+            <div class="hf-text">Camboinhas, Ingá, Piratininga e Icaraí — os endereços mais cobiçados de Niterói.</div>
+          </div>
+        </div>
+        <div class="hf-item">
+          <div class="hf-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div>
+            <div class="hf-title">10,6% de Valorização/ano</div>
+            <div class="hf-text">Maior crescimento imobiliário do estado, comprovado pelo índice FIPE/ZAP.</div>
+          </div>
+        </div>
+        <div class="hf-item">
+          <div class="hf-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+          </div>
+          <div>
+            <div class="hf-title">Assessoria Completa</div>
+            <div class="hf-text">Da simulação ao contrato, nossa equipe cuida de cada detalhe por você.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-acts">
+        <a href="#imoveis" class="btn-s">Ver Imóveis Disponíveis</a>
+        <a href="calculadora.html" class="btn-g">Calcular meu ROI ↗</a>
+      </div>
+    </div>
+    <div class="hero-right"></div>
+  </div>
+
+  <div class="hero-nums">
+    <div><div class="hn-val">+7</div><div class="hn-lbl">Empreendimentos</div></div>
+    <div class="hn-sep"></div>
+    <div><div class="hn-val">10,6<span>%</span></div><div class="hn-lbl">Valorização/ano</div></div>
+    <div class="hn-sep"></div>
+    <div><div class="hn-val">150<span>m</span></div><div class="hn-lbl">da Praia</div></div>
+  </div>
+
+  <div class="scroll-prompt">
+    <span class="sp-txt">Scroll</span>
+    <div class="sp-line"><div class="sp-dot"></div></div>
+  </div>
+</section>
+
+<!-- ──── METRICS ──── -->
+<div class="metrics">
+  <div class="metrics-grid">
+    <div class="rv"><div class="m-num" data-c="7" data-s="">0</div><div class="m-div"></div><div class="m-lbl">Lançamentos em 2 anos</div></div>
+    <div class="rv d1"><div class="m-num" data-c="460" data-s="+">0</div><div class="m-div"></div><div class="m-lbl">Unidades lançadas</div></div>
+    <div class="rv d2"><div class="m-num" data-c="10.6" data-s="%">0</div><div class="m-div"></div><div class="m-lbl">Valorização anual</div></div>
+    <div class="rv d3"><div class="m-num" data-c="98" data-s="%">0</div><div class="m-div"></div><div class="m-lbl">Satisfação dos Clientes</div></div>
+  </div>
+</div>
+
+<!-- ──── PROPERTIES ──── -->
+<section class="props" id="imoveis">
+  <div class="props-hd">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem" class="rv">
+        <span style="display:inline-block;width:22px;height:1px;background:var(--orange)"></span>Portfólio Exclusivo
+      </div>
+      <h2 class="props-title"><span class="props-title-clip"><span class="props-title-inner" id="ptLine1">Empreendimentos</span></span> <span class="props-title-clip"><span class="props-title-inner d1" id="ptLine2"><em>Disponíveis</em></span></span></h2>
+    </div>
+    <a href="tabela-precos.html" class="view-all-btn rv d2">Ver Tabela de Preços ↗</a>
+  </div>
+
+  <div class="filter-row rv">
+    <button class="fbtn on" onclick="filterP('all',this)">Todos</button>
+    <button class="fbtn" onclick="filterP('studio',this)">Studio</button>
+    <button class="fbtn" onclick="filterP('1q',this)">1 Quarto</button>
+    <button class="fbtn" onclick="filterP('2q',this)">2 Quartos</button>
+    <button class="fbtn" onclick="filterP('3q',this)">3 Quartos</button>
+  </div>
+
+  <div class="props-grid" id="propsGrid">
+
+    <article class="pc" data-t="studio 1q lancamento" onclick="location.href='imoveis/brise.html'">
+      <div class="pc-img">
+        <img src="img/wp/Fachada-scaled.jpeg" alt="Conviva Brise Camboinhas" loading="lazy">
+        <span class="pc-tag">Lançamento</span>
+        <span class="pc-dist">150m</span>
+      
+        <div class="pc-overlay"><span class="pc-overlay-cta">Conhecer <span class="pc-overlay-arrow">→</span></span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">Conviva Brise</div>
+        <div class="pc-loc">Camboinhas, Niterói</div>
+        <div class="pc-feats"><span class="pc-feat">Studio / 1Q</span><span class="pc-feat">37–95m²</span><span class="pc-feat">Rooftop Piscina</span></div>
+        <div class="pc-foot">
+          <div><div class="pc-price-lbl">A partir de</div><div class="pc-price-val">R$ 480.000</div></div>
+          <button class="pc-btn" onclick="event.stopPropagation();location.href='imoveis/brise.html'">Ver →</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="pc" data-t="studio 1q 2q" onclick="location.href='imoveis/life-inga.html'">
+      <div class="pc-img">
+        <img src="img/wp/PauloAlves-03-alta.jpg" alt="Life Ingá" loading="lazy">
+        <span class="pc-tag">Destaque</span>
+        <span class="pc-dist">190m</span>
+      
+        <div class="pc-overlay"><span class="pc-overlay-cta">Conhecer <span class="pc-overlay-arrow">→</span></span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">Conviva Life Ingá</div>
+        <div class="pc-loc">Ingá, Niterói</div>
+        <div class="pc-feats"><span class="pc-feat">Studio / 1Q / 2Q</span><span class="pc-feat">488m² lazer</span></div>
+        <div class="pc-foot">
+          <div><div class="pc-price-lbl">A partir de</div><div class="pc-price-val">R$ 520.000</div></div>
+          <button class="pc-btn" onclick="event.stopPropagation();location.href='imoveis/life-inga.html'">Ver →</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="pc" data-t="1q 2q 3q" onclick="location.href='imoveis/life-camboinhas.html'">
+      <div class="pc-img">
+        <img src="img/wp/thumbs/Life-Camboinhas-Perspectivas.webp" alt="Life Camboinhas" loading="lazy">
+        <span class="pc-tag">Em Obras</span>
+        <span class="pc-dist">650m</span>
+      
+        <div class="pc-overlay"><span class="pc-overlay-cta">Conhecer <span class="pc-overlay-arrow">→</span></span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">Conviva Life Camboinhas</div>
+        <div class="pc-loc">Camboinhas, Niterói</div>
+        <div class="pc-feats"><span class="pc-feat">1Q / 2Q / 3Q</span><span class="pc-feat">650m praia</span></div>
+        <div class="pc-foot">
+          <div><div class="pc-price-lbl">A partir de</div><div class="pc-price-val">R$ 580.000</div></div>
+          <button class="pc-btn" onclick="event.stopPropagation();location.href='imoveis/life-camboinhas.html'">Ver →</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="pc" data-t="studio 1q lancamento" onclick="location.href='imoveis/icarai.html'">
+      <div class="pc-img">
+        <img src="img/wp/thumbs/02-CONVIVA-MB_FACHADA-21.jpg" alt="Icaraí" loading="lazy">
+        <span class="pc-tag">Novo</span>
+        <span class="pc-dist">100m</span>
+      
+        <div class="pc-overlay"><span class="pc-overlay-cta">Conhecer <span class="pc-overlay-arrow">→</span></span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">Conviva Icaraí</div>
+        <div class="pc-loc">Icaraí, Niterói</div>
+        <div class="pc-feats"><span class="pc-feat">Studio / Garden</span><span class="pc-feat">31–84m²</span></div>
+        <div class="pc-foot">
+          <div><div class="pc-price-lbl">A partir de</div><div class="pc-price-val">R$ 550.000</div></div>
+          <button class="pc-btn" onclick="event.stopPropagation();location.href='imoveis/icarai.html'">Ver →</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="pc" data-t="1q" onclick="location.href='imoveis/piratininga.html'">
+      <div class="pc-img">
+        <img src="img/wp/thumbs/Sala-406.jpg" alt="Piratininga" loading="lazy">
+        <span class="pc-tag">Quadra de Praia</span>
+        <span class="pc-dist">3min</span>
+      
+        <div class="pc-overlay"><span class="pc-overlay-cta">Conhecer <span class="pc-overlay-arrow">→</span></span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">Conviva Piratininga</div>
+        <div class="pc-loc">Piratininga, Niterói</div>
+        <div class="pc-feats"><span class="pc-feat">1 Quarto</span><span class="pc-feat">Quadra de praia</span></div>
+        <div class="pc-foot">
+          <div><div class="pc-price-lbl">A partir de</div><div class="pc-price-val">R$ 420.000</div></div>
+          <button class="pc-btn" onclick="event.stopPropagation();location.href='imoveis/piratininga.html'">Ver →</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="pc" data-t="studio 1q 2q" onclick="location.href='imoveis/camboinhas.html'">
+      <div class="pc-img">
+        <img src="img/wp/thumbs/Camboinhas-Perspectiva-22.jpg" alt="Camboinhas" loading="lazy">
+        <span class="pc-tag">Exclusivo</span>
+        <span class="pc-dist">Pé na areia</span>
+      
+        <div class="pc-overlay"><span class="pc-overlay-cta">Conhecer <span class="pc-overlay-arrow">→</span></span></div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">Conviva Camboinhas</div>
+        <div class="pc-loc">Camboinhas, Niterói</div>
+        <div class="pc-feats"><span class="pc-feat">1Q / Double Suite</span><span class="pc-feat">Vista Mar</span></div>
+        <div class="pc-foot">
+          <div><div class="pc-price-lbl">A partir de</div><div class="pc-price-val">R$ 490.000</div></div>
+          <button class="pc-btn" onclick="event.stopPropagation();location.href='imoveis/camboinhas.html'">Ver →</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ──── WHY NITERÓI ──── -->
+<section class="why">
+  <div class="why-inner">
+    <div class="rv-l">
+      <div class="why-img-wrap">
+        <img src="img/wp/thumbs/Life-Camboinhas-Perspectivas.webp" class="why-img" id="whyImg" alt="Vista da praia de Camboinhas" loading="lazy">
+        <div class="why-float">
+          <div class="why-float-val">1,5%<span style="font-size:.5em;color:var(--muted);font-family:var(--font-b);font-weight:300">/mês</span></div>
+          <div class="why-float-lbl">Renda aluguel temporada</div>
+        </div>
+      </div>
+    </div>
+    <div class="rv-r">
+      <div style="display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem">
+        <span style="display:inline-block;width:22px;height:1px;background:var(--orange)"></span>Por que Niterói?
+      </div>
+      <h2 style="font-family:var(--font-d);font-size:clamp(2rem,4vw,3.5rem);font-weight:600;color:var(--white);line-height:1.08;margin-bottom:1.5rem">A cidade que <em style="font-style:italic;color:rgba(240,235,228,.5)">nunca para</em> de valorizar</h2>
+      <div class="why-points">
+        <div class="why-pt">
+          <div class="why-pt-icon">🏖</div>
+          <div><div class="why-pt-title">Praias Preservadas</div><div class="why-pt-text">Camboinhas e Piratininga estão entre as praias mais limpas do Brasil — acesso controlado, natureza preservada e demanda crescente.</div></div>
+        </div>
+        <div class="why-pt">
+          <div class="why-pt-icon">📈</div>
+          <div><div class="why-pt-title">+10,63% ao Ano</div><div class="why-pt-text">Niterói superou Rio de Janeiro e a média nacional de valorização. Escassez de terrenos = alta estrutural — não sazonal.</div></div>
+        </div>
+        <div class="why-pt">
+          <div class="why-pt-icon">🚢</div>
+          <div><div class="why-pt-title">20 min do Rio</div><div class="why-pt-text">Barca + metrô integrado para o Rio de Janeiro. Qualidade de vida de cidade litorânea com acesso a metrópole.</div></div>
+        </div>
+      </div>
+      <a href="investir.html" class="btn-g" style="display:inline-flex">Ver Análise Completa →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ──── TESTIMONIALS ──── -->
+<section class="testi">
+  <div style="display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem">
+    <span style="width:22px;height:1px;background:var(--orange);display:inline-block"></span>Quem já realizou o sonho
+  </div>
+  <div class="testi-track-wrap">
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Comprei o studio no Brise e em 8 meses valorizou 14%. A equipe acompanhou tudo — financiamento aprovado em 12 dias."</p><div class="t-author"><div class="t-avatar">R</div><div><div class="t-name">Ricardo Almeida</div><div class="t-role">Brise · Camboinhas</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Buscava renda passiva. Os consultores me mostraram o retorno real em Camboinhas — 1,6% ao mês. Melhor decisão da minha vida."</p><div class="t-author"><div class="t-avatar">M</div><div><div class="t-name">Marina Fonseca</div><div class="t-role">Investidora · Life Ingá</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Família sonhava com ap na praia. Life Camboinhas, 3 quartos, no nosso orçamento. A Viva Vendas cuidou de tudo sem estresse."</p><div class="t-author"><div class="t-avatar">P</div><div><div class="t-name">Paulo & Carla Ferreira</div><div class="t-role">Life Camboinhas</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Nunca imaginei que comprar um imóvel seria tão tranquilo. Usei FGTS como entrada e a consultora me guiou em cada passo."</p><div class="t-author"><div class="t-avatar">A</div><div><div class="t-name">Ana Luiza Monteiro</div><div class="t-role">Piratininga · Niterói</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Rooftop com piscina, Sky Bar, vista pro mar. Isso não é imóvel — é estilo de vida. Obrigado Viva Vendas por encontrar exatamente o que eu precisava."</p><div class="t-author"><div class="t-avatar">L</div><div><div class="t-name">Leonardo Pires</div><div class="t-role">Brise · Camboinhas</div></div></div></div>
+      <!-- Duplicatas -->
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Comprei o studio no Brise e em 8 meses valorizou 14%. A equipe acompanhou tudo — financiamento aprovado em 12 dias."</p><div class="t-author"><div class="t-avatar">R</div><div><div class="t-name">Ricardo Almeida</div><div class="t-role">Brise · Camboinhas</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Buscava renda passiva. Os consultores me mostraram o retorno real em Camboinhas — 1,6% ao mês. Melhor decisão da minha vida."</p><div class="t-author"><div class="t-avatar">M</div><div><div class="t-name">Marina Fonseca</div><div class="t-role">Investidora · Life Ingá</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Família sonhava com ap na praia. Life Camboinhas, 3 quartos, no nosso orçamento. A Viva Vendas cuidou de tudo sem estresse."</p><div class="t-author"><div class="t-avatar">P</div><div><div class="t-name">Paulo & Carla Ferreira</div><div class="t-role">Life Camboinhas</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Nunca imaginei que comprar um imóvel seria tão tranquilo. Usei FGTS como entrada e a consultora me guiou em cada passo."</p><div class="t-author"><div class="t-avatar">A</div><div><div class="t-name">Ana Luiza Monteiro</div><div class="t-role">Piratininga · Niterói</div></div></div></div>
+      <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-text">"Rooftop com piscina, Sky Bar, vista pro mar. Isso não é imóvel — é estilo de vida. Obrigado Viva Vendas por encontrar exatamente o que eu precisava."</p><div class="t-author"><div class="t-avatar">L</div><div><div class="t-name">Leonardo Pires</div><div class="t-role">Brise · Camboinhas</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── INVEST PITCH ──── -->
+<section class="invest">
+  <div class="invest-inner">
+    <div>
+      <h2 class="invest-title rv">Quanto rende um ap<br>em <em>Camboinhas?</em></h2>
+      <p class="invest-text rv d1">Studios em Camboinhas rendem entre R$ 3.500 e R$ 6.500/mês líquido via Airbnb — com ocupação de 78% ao ano. Use nossa calculadora para simular o seu cenário específico.</p>
+      <div class="invest-acts rv d2">
+        <a href="calculadora.html" class="btn-wi">📊 Abrir Calculadora</a>
+        <a href="investir.html" class="btn-wo">Ver Guia Completo →</a>
+      </div>
+    </div>
+    <div class="invest-stats rv-r">
+      <div class="invest-stat"><div class="is-val">+67%</div><div class="is-lbl">ROI em 5 anos</div></div>
+      <div class="invest-stat"><div class="is-val">R$4.2K</div><div class="is-lbl">Renda mensal média</div></div>
+      <div class="invest-stat"><div class="is-val">78%</div><div class="is-lbl">Taxa de ocupação</div></div>
+      <div class="invest-stat"><div class="is-val">10%</div><div class="is-lbl">Cap Rate a.a.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── FAQ ──── -->
+<section class="faq">
+  <div class="faq-inner">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem" class="rv">
+        <span style="width:22px;height:1px;background:var(--orange);display:inline-block"></span>FAQ
+      </div>
+      <h2 style="font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;color:var(--white);line-height:1.1;margin-bottom:1rem" class="rv d1">Dúvidas <em style="font-style:italic;color:rgba(240,235,228,.5)">frequentes</em></h2>
+      <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Tenho uma dúvida sobre imóveis em Niterói." target="_blank" class="btn-g rv d2" style="margin-top:2rem;display:inline-flex">Perguntar no WhatsApp</a>
+    </div>
+    <div class="rv d1">
+      <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Quais bairros de Niterói têm aptos à venda perto da praia? <span class="faq-icon">+</span></button><div class="faq-a">Camboinhas, Ingá, Piratininga e Icaraí. Os empreendimentos Conviva ficam a menos de 650m do mar em todos esses bairros, com estrutura completa de lazer.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Qual o preço de um studio em Niterói perto da praia? <span class="faq-icon">+</span></button><div class="faq-a">Studios nos empreendimentos Conviva partem de R$ 420.000 (Piratininga) a R$ 620.000 (Brise Camboinhas). Metragem varia de 31m² a 42m².</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Vale a pena comprar apartamento na planta em Niterói? <span class="faq-icon">+</span></button><div class="faq-a">Sim. Niterói valorizou 10,63% ao ano. Na planta você garante o menor preço do ciclo — histórico mostra 15–25% de ganho até a entrega.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Posso usar FGTS para comprar um imóvel Conviva? <span class="faq-icon">+</span></button><div class="faq-a">Sim. O FGTS pode ser usado como entrada ou para amortizar o saldo. Nossa equipe verifica sua elegibilidade gratuitamente e orienta todo o processo.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Qual a rentabilidade de aluguel por temporada em Camboinhas? <span class="faq-icon">+</span></button><div class="faq-a">Studios em Camboinhas rendem entre R$ 3.500 e R$ 6.500/mês líquido via Airbnb. Taxa de ocupação média de 78% — acima de 90% no verão. Cap rate de 9–11% ao ano.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── CTA FINAL ──── -->
+<section class="final-cta">
+  <div class="fc-bg"></div>
+  <span class="fc-eyebrow rv">Próximo passo</span>
+  <h2 class="fc-title rv d1">Pronto para <em>viver<br>à beira-mar?</em></h2>
+  <p class="fc-sub rv d2">Fale agora com um especialista. Sem pressão, sem scripts — só o imóvel certo para o seu momento de vida.</p>
+  <div class="fc-acts rv d3">
+    <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Olá! Quero uma consultoria gratuita sobre apartamentos Conviva em Niterói." target="_blank" class="btn-s">💬 Falar no WhatsApp</a>
+    <a href="calculadora.html" class="btn-g">📊 Calcular meu ROI</a>
+    <a href="tabela-precos.html" class="btn-g">💰 Ver Tabela de Preços</a>
+  </div>
+  <div class="fc-trust rv d4">
+    <span class="fc-trust-item">Consultoria 100% gratuita</span>
+    <span class="fc-trust-item">Sem taxa de corretagem</span>
+    <span class="fc-trust-item">Financiamento facilitado</span>
+    <span class="fc-trust-item">ADEMI Certificado</span>
+  </div>
+</section>
+
+<!-- ──── FOOTER ──── -->
+<div class="vv-marquee-wrap">
+  <div class="vv-marquee" data-speed="55">
+    <div class="vv-marquee-track"><span>CAMBOINHAS · ICARAÍ · INGÁ · PIRATININGA · NITERÓI · RJ · <em>VIVA VENDAS</em> · APARTAMENTOS À VENDA · INVESTIMENTO IMOBILIÁRIO · </span></div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand"><div class="ft-logo">V</div><div class="ft-name">Viva <span>Vendas</span></div></div>
+      <p class="ft-desc">Consultoria imobiliária exclusiva em empreendimentos Conviva em Niterói. Expertise local, atendimento personalizado e transparência total.</p>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/vivavendas.niteroi/" target="_blank">ig</a>
+        <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank">wa</a>
+        <a href="https://www.youtube.com/@convivaengenharia" target="_blank">yt</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Empreendimentos</h4><ul>
+      <li><a href="imoveis/brise.html">Conviva Brise</a></li>
+      <li><a href="imoveis/life-inga.html">Life Ingá</a></li>
+      <li><a href="imoveis/life-camboinhas.html">Life Camboinhas</a></li>
+      <li><a href="imoveis/piratininga.html">Piratininga</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Bairros</h4><ul>
+      <li><a href="bairros/camboinhas.html">Camboinhas</a></li>
+      <li><a href="bairros/icarai.html">Icaraí</a></li>
+      <li><a href="bairros/inga.html">Ingá</a></li>
+      <li><a href="bairros/piratininga.html">Piratininga</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Recursos</h4><ul>
+      <li><a href="calculadora.html">Calculadora ROI</a></li>
+      <li><a href="investir.html">Guia do Investidor</a></li>
+      <li><a href="financiamento.html">Financiamento</a></li>
+      <li><a href="fgts.html">FGTS</a></li>
+      <li><a href="aluguel-temporada.html">Aluguel Temporada</a></li>
+      <li><a href="faq/index.html">Perguntas Frequentes</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Guias & Blog</h4><ul>
+      <li><a href="blog/preco-m2-niteroi.html">Preço do m² em Niterói</a></li>
+      <li><a href="blog/camboinhas-vs-piratininga.html">Camboinhas vs Piratininga</a></li>
+      <li><a href="blog/niteroi-rio-comparativo-investimento.html">Niterói vs Rio — Investimento</a></li>
+      <li><a href="blog/retorno-aluguel-temporada-niteroi.html">Retorno Aluguel Temporada</a></li>
+      <li><a href="blog/financiamento-apartamento-planta.html">Financiamento na Planta</a></li>
+      <li><a href="blog/conviva-engenharia-historico.html">Conviva — Histórico</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Contato</h4><ul>
+      <li><a href="tel:+552134921790">(21) 3492-1790</a></li>
+      <li><a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank">(21) 96703-1691</a></li>
+      <li><a href="#">contato@vivavendas.com.br</a></li>
+      <li><a href="sobre.html">Sobre a Viva Vendas</a></li>
+      <li><a href="conviva.html">Construtora Parceira</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 <strong>Viva Vendas</strong> · Todos os direitos reservados</span>
+    <span>Preços ilustrativos · <a href="conviva.html">Construtora Parceira →</a></span>
+  </div>
+</footer>
+
+<!-- ──── WHATSAPP ──── -->
+<a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Olá! Vim pelo site Viva Vendas." target="_blank" class="wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ──── SCRIPTS ──── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  // ── Custom Cursor ──
+  const dot = document.getElementById('cDot');
+  const ring = document.getElementById('cRing');
+  let mx=0,my=0,rx=0,ry=0;
+  const isMobile = window.matchMedia('(hover:none)').matches;
+
+  if(!isMobile){
+    window.addEventListener('mousemove',e=>{
+      mx=e.clientX; my=e.clientY;
+      dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    });
+    (function raf(){
+      rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+      ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(raf);
+    })();
+
+    document.querySelectorAll('a,button,.pc,.g-item').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{dot.classList.add('hovered');ring.classList.add('hovered')});
+      el.addEventListener('mouseleave',()=>{dot.classList.remove('hovered');ring.classList.remove('hovered')});
+    });
+  }
+
+  // ── Loader ──
+  setTimeout(function(){
+    var l=document.getElementById('loader');
+    l.classList.add('exit');
+    document.body.classList.remove('loading');
+    setTimeout(function(){if(l)l.remove();initPage();},820);
+  },1550);
+
+  // ── Page init ──
+  function initPage(){
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero reveal
+    const hero = document.getElementById('hero');
+    hero.classList.add('started');
+
+    // Hero poster: fades out on scroll down, fades back in when back at top
+    (function(){
+      var poster = document.getElementById('heroPoster');
+      if(!poster) return;
+      var visible = true;
+      var tween = null;
+      var THRESHOLD = 10;
+      window.addEventListener('scroll', function(){
+        var atTop = window.scrollY <= THRESHOLD;
+        if(atTop && !visible){
+          visible = true;
+          poster.style.display = '';
+          if(tween) tween.kill();
+          tween = gsap.to(poster, {opacity:1, duration:1.2, ease:'power2.inOut'});
+        } else if(!atTop && visible){
+          visible = false;
+          if(tween) tween.kill();
+          tween = gsap.to(poster, {opacity:0, duration:1.5, ease:'power2.inOut',
+            onComplete: function(){ if(!visible) poster.style.display='none'; }
+          });
+        }
+      }, {passive:true});
+    })();
+
+    // Nav
+    const pill = document.getElementById('navPill');
+    window.addEventListener('scroll',()=>pill.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+    // Scroll progress bar
+    const prog = document.getElementById('scrollProg');
+    window.addEventListener('scroll',()=>{
+      const pct = scrollY / (document.body.scrollHeight - innerHeight) * 100;
+      prog.style.width = Math.min(pct,100) + '%';
+    },{passive:true});
+
+    // Hero: scroll-scrubbed video + scene text transitions
+    (function(){
+      var video=document.getElementById('heroVideo');
+      if(!video)return;
+
+      // Show first frame immediately once metadata loaded
+      video.addEventListener('loadedmetadata',function(){
+        video.currentTime=0;
+      },{once:true});
+      video.load();
+
+      // Scene initial states: scenes 2 & 3 start hidden below
+      gsap.set(['.hl-scene-2','.hl-scene-3'],{autoAlpha:0,y:70});
+
+      // Timeline: scenes rise up on scroll — total 11 "beats"
+      var tl=gsap.timeline();
+      tl.to('.hl-scene-1',{autoAlpha:0,y:-70,duration:1},3)
+        .fromTo('.hl-scene-2',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},3.3)
+        .to('.hl-scene-2',{autoAlpha:0,y:-70,duration:1},7)
+        .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
+        // Exit: content rises and fades, curtain closes to black
+        .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},9.2)
+        .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},9.3)
+        .to('#heroCurtain',{opacity:1,duration:1.5,ease:'power2.in'},9.5)
+        // Impact text: appears centered over dark curtain at end of scroll
+        .fromTo('#heroImpact',{opacity:0,scale:.96},{opacity:1,scale:1,duration:1.8,ease:'power2.out'},10.2);
+
+      // Pin hero, scrub timeline + video in sync
+      // VIDEO_OFFSET: first 15% of scroll is reserved for poster fade —
+      // video stays at frame 0 during that window, then advances normally.
+      var VIDEO_OFFSET = 0.15;
+      ScrollTrigger.create({
+        animation:tl,
+        trigger:'#hero',
+        start:'top top',
+        end:'+='+(window.innerHeight*3.5),
+        pin:true,
+        scrub:0.8,
+        onUpdate:function(self){
+          if(video.readyState>=2&&video.duration){
+            var p = Math.max(0, (self.progress - VIDEO_OFFSET) / (1 - VIDEO_OFFSET));
+            video.currentTime = p * video.duration;
+          }
+        }
+      });
+    })();
+
+    // Metrics band: slide up from invisible as it enters viewport after hero pin
+    gsap.from('.metrics',{
+      opacity:0,y:50,duration:1.1,ease:'power3.out',
+      scrollTrigger:{trigger:'.metrics',start:'top 92%',once:true}
+    });
+
+    // Why image slow parallax
+    gsap.to('#whyImg',{
+      yPercent:-8, ease:'none',
+      scrollTrigger:{trigger:'.why',start:'top bottom',end:'bottom top',scrub:1.5}    });
+
+    // Property cards: staggered entrance (y + opacity + scale)
+    gsap.utils.toArray('.pc').forEach(function(card,i){
+      gsap.fromTo(card,
+        {opacity:0,y:55,scale:.97},
+        {opacity:1,y:0,scale:1,duration:.9,ease:'power3.out',delay:i*0.09,
+          scrollTrigger:{trigger:card,start:'top 90%',once:true}}
+      );
+    });
+
+    // Sliding filter indicator
+    (function(){
+      var row=document.querySelector('.filter-row');
+      if(!row)return;
+      var ind=document.createElement('div');
+      ind.className='filter-ind';
+      row.prepend(ind);
+      function moveInd(btn){
+        ind.style.left=btn.offsetLeft+'px';
+        ind.style.top=btn.offsetTop+'px';
+        ind.style.width=btn.offsetWidth+'px';
+        ind.style.height=btn.offsetHeight+'px';
+      }
+      var active=row.querySelector('.fbtn.on');
+      if(active){setTimeout(function(){moveInd(active);},50);}
+      window.__moveFilterInd=moveInd;
+    })();
+
+    // Props section title reveal
+    (function(){
+      var l1=document.getElementById('ptLine1'),l2=document.getElementById('ptLine2');
+      ScrollTrigger.create({
+        trigger:'#imoveis',start:'top 80%',once:true,
+        onEnter:function(){if(l1)l1.classList.add('vis');if(l2)l2.classList.add('vis');}
+      });
+    })();
+
+    // Why-points staggered reveal
+    ScrollTrigger.create({
+      trigger:'.why-points',start:'top 80%',once:true,
+      onEnter:function(){
+        document.querySelectorAll('.why-pt').forEach(function(pt){pt.classList.add('vis');});
+      }
+    });
+
+    // Metric
+    // Metric counter: count-up animation as metrics band enters viewport
+    (function(){
+      var nums = document.querySelectorAll('.m-num[data-c]');
+      if(!nums.length) return;
+      ScrollTrigger.create({
+        trigger:'.metrics', start:'top 85%', once:true,
+        onEnter:function(){
+          nums.forEach(function(el){
+            var target = parseFloat(el.getAttribute('data-c'));
+            var suffix = el.getAttribute('data-s') || '';
+            var isDecimal = (target % 1 !== 0);
+            var duration = 1800;
+            var startTime = null;
+            function tick(ts){
+              if(!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var ease = 1 - Math.pow(1 - progress, 3);
+              var val = target * ease;
+              el.textContent = (isDecimal ? val.toFixed(1) : Math.round(val)) + suffix;
+              if(progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          });
+        }
+      });
+    })();
+
+    // Scroll-reveal: .rv, .rv-l, .rv-r
+    document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(function(el){
+      ScrollTrigger.create({
+        trigger:el, start:'top 88%', once:true,
+        onEnter:function(){ el.classList.add('vis'); }
+      });
+    });
+
+    // Marquee
+    document.querySelectorAll('.vv-marquee').forEach(function(m){
+      var track = m.querySelector('.vv-marquee-track');
+      if(!track) return;
+      track.innerHTML = track.innerHTML + track.innerHTML;
+      var x = 0, speed = 0.4;
+      var w = track.scrollWidth / 2;
+      (function tick(){
+        x -= speed;
+        if(Math.abs(x) >= w) x = 0;
+        track.style.transform = 'translateX(' + x + 'px)';
+        requestAnimationFrame(tick);
+      })();
+    });
+
+  } // end initPage
+
+})(); //</script>
+</body>
+</html>

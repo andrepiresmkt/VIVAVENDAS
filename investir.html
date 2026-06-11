@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia do Investidor – Imóveis em Niterói | Viva Vendas</title>
+  <meta name="description" content="Por que investir em imóveis em Niterói? Valorização de 10,63% ao ano, alta demanda de aluguel, cap rate de até 12%. Descubra o melhor investimento imobiliário do RJ.">
+  <link rel="canonical" href="https://vivavendas.com.br/investir">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Vale a pena investir em imóveis em Niterói?","acceptedAnswer":{"@type":"Answer","text":"Sim. Niterói teve valorização imobiliária de 10,63% ao ano em 2025. Camboinhas, Ingá e Icaraí são as regiões com maior demanda e menor oferta de imóveis novos."}},{"@type":"Question","name":"Qual o retorno de aluguel por temporada em Camboinhas?","acceptedAnswer":{"@type":"Answer","text":"Studios bem equipados em Camboinhas podem render entre R$ 3.500 e R$ 6.000 por mês com aluguel por temporada via Airbnb, com taxa de ocupação de até 78%."}},{"@type":"Question","name":"Como funciona o financiamento dos apartamentos Conviva?","acceptedAnswer":{"@type":"Answer","text":"Os empreendimentos Conviva aceitam financiamento bancário (CEF e Bradesco), FGTS e parcelamento direto durante a obra. Entre em contato para simular seu investimento."}},{"@type":"Question","name":"Qual o melhor empreendimento para investir em Niterói?","acceptedAnswer":{"@type":"Answer","text":"O Conviva Brise em Camboinhas e o Life Ingá no Ingá são os empreendimentos com melhor relação preço-valorização-liquidez em 2025."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0a0a;--surface:#111;--surface2:#181818;--text:#f0ebe4;--muted:#888;--stroke:#1f1f1f;--orange:#E8501E;--orange-l:#FF6B35;--grad:linear-gradient(90deg,var(--orange-l),var(--orange));--ease-expo:cubic-bezier(0.16,1,0.3,1);--font-d:'Cinzel',serif;--font-b:'Inter',sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:auto}body{background:var(--bg);color:var(--text);font-family:var(--font-b);overflow-x:hidden;line-height:1.6}body.loading{overflow:hidden}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}
+    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+    /* ──── LOADER ──── */
+    #loader{
+      position:fixed;inset:0;z-index:9999;background:#000;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .ldr-inner{
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+    }
+    .ldr-v-clip{overflow:hidden;line-height:1.05}
+    .ldr-v{
+      display:block;
+      font-family:var(--font-d);font-size:clamp(5rem,14vw,10rem);
+      font-weight:700;color:#E8501E;letter-spacing:-.02em;
+      transform:translateY(115%);
+      animation:ldrUp .65s .1s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .ldr-name-clip{overflow:hidden;line-height:1.4;margin-top:-.15em}
+    .ldr-name{
+      display:block;
+      font-family:var(--font-d);font-size:clamp(.72rem,1.6vw,1rem);
+      font-weight:600;letter-spacing:.55em;color:rgba(240,235,228,.85);
+      transform:translateY(110%);
+      animation:ldrUp .5s .42s cubic-bezier(0.16,1,0.3,1) forwards;
+      padding-right:.55em;
+    }
+    .ldr-sep{
+      width:clamp(140px,18vw,240px);height:1px;
+      background:rgba(255,255,255,.07);
+      margin:1.5rem auto;overflow:hidden;
+    }
+    .ldr-sep-fill{
+      height:100%;
+      background:linear-gradient(90deg,#FF6B35,#E8501E);
+      transform:scaleX(0);transform-origin:left;
+      animation:ldrLine .5s .72s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .ldr-city-clip{overflow:hidden;line-height:1.5}
+    .ldr-city{
+      display:block;
+      font-size:.52rem;letter-spacing:.38em;text-transform:uppercase;
+      color:rgba(255,255,255,.2);
+      transform:translateY(110%);
+      animation:ldrUp .38s 1.0s ease forwards;
+      padding-right:.38em;
+    }
+    @keyframes ldrUp{to{transform:translateY(0)}}
+    @keyframes ldrLine{to{transform:scaleX(1)}}
+    #loader.exit{
+      transform:translateY(-100%);
+      transition:transform .8s cubic-bezier(.76,0,.24,1);
+    }
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:1.2rem 1rem;pointer-events:none}
+    .nav-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem;background:rgba(17,17,17,.75);backdrop-filter:blur(20px);border:1px solid var(--stroke);border-radius:50px;pointer-events:auto;transition:box-shadow .3s}
+    .nav-pill.scrolled{box-shadow:0 4px 28px rgba(0,0,0,.5)}
+    .nav-logo-c{width:34px;height:34px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:.72rem;font-weight:700;color:#fff;transition:transform .3s var(--ease-expo)}
+    .nav-logo-c:hover{transform:scale(1.12)}.nav-div{width:1px;height:18px;background:var(--stroke);margin:0 .2rem}
+    .nav-links{display:flex;list-style:none;gap:.2rem}.nav-link{display:block;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.45);border-radius:50px;transition:all .25s;white-space:nowrap}
+    .nav-link:hover,.nav-link.active{color:var(--text);background:var(--stroke)}
+    .nav-cta{position:relative;display:inline-flex;align-items:center;gap:.3rem;padding:.45rem 1.1rem;font-size:.77rem;font-weight:500;color:var(--text);border-radius:50px;overflow:hidden;white-space:nowrap}
+    .nav-cta::before{content:'';position:absolute;inset:-1px;border-radius:50px;background:var(--grad);opacity:0;transition:opacity .3s;z-index:-1}
+    .nav-cta::after{content:'';position:absolute;inset:0;border-radius:50px;background:var(--surface);z-index:-1}.nav-cta:hover::before{opacity:1}
+    .hero{position:relative;height:90vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;background:#000}
+    .hero-bg{position:absolute;inset:0;will-change:transform}.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 2s var(--ease-expo)}
+    .hero.started .hero-bg img{transform:scale(1)}
+    .hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.04) 30%,rgba(0,0,0,.6) 65%,rgba(0,0,0,.96) 100%)}
+    .hero-content{position:relative;z-index:2;padding:0 7% 10vh;width:100%}
+    .hero-ey-clip{overflow:hidden;margin-bottom:1.2rem}
+    .hero-eyebrow{display:block;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.45);transform:translateY(100%);transition:transform 1s .15s var(--ease-expo)}
+    .hero.started .hero-eyebrow{transform:translateY(0)}.t-clip{overflow:hidden}
+    .hero-title{display:block;font-family:var(--font-d);font-size:clamp(4rem,12vw,13rem);font-weight:700;letter-spacing:-.03em;line-height:.85;color:var(--text);transform:translateY(108%);transition:transform 1.4s .3s var(--ease-expo)}
+    .hero.started .hero-title{transform:translateY(0)}
+    .hero-sub{display:block;font-family:var(--font-d);font-style:italic;font-size:clamp(1.2rem,3vw,2.5rem);font-weight:400;color:rgba(240,235,228,.55);transform:translateY(108%);transition:transform 1.3s .5s var(--ease-expo);margin-bottom:2rem}
+    .hero.started .hero-sub{transform:translateY(0)}
+    .hero-body{font-size:.9rem;font-weight:300;color:rgba(240,235,228,.5);max-width:420px;line-height:1.8;opacity:0;transform:translateY(16px);transition:all .9s .7s ease}
+    .hero.started .hero-body{opacity:1;transform:translateY(0)}
+    .s-eyebrow{display:inline-flex;align-items:center;gap:.65rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem}
+    .s-eyebrow::before{content:'';display:inline-block;width:22px;height:1px;background:var(--orange)}
+    .s-title{font-family:var(--font-d);font-size:clamp(2rem,4.5vw,3.8rem);font-weight:600;color:var(--text);line-height:1.08}.s-title em{font-style:italic;font-weight:400;color:rgba(240,235,228,.55)}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s var(--ease-expo)}.reveal.vis{opacity:1;transform:translateY(0)}
+    .reveal-r{opacity:0;transform:translateX(40px);transition:opacity .9s ease,transform .9s var(--ease-expo)}.reveal-r.vis{opacity:1;transform:translateX(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+    /* STATS BANNER */
+    .stats-banner{background:var(--surface);padding:4rem 7%;border-top:1px solid var(--stroke)}
+    .stats-banner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--stroke);border-radius:16px;overflow:hidden}
+    .sb-item{padding:2.5rem 2rem;border-right:1px solid var(--stroke);position:relative;overflow:hidden;transition:background .3s;cursor:default}
+    .sb-item:last-child{border-right:none}.sb-item:hover{background:var(--surface2)}
+    .sb-num{font-family:var(--font-d);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;color:var(--text);line-height:1;margin-bottom:.5rem}
+    .sb-num sup{font-size:.5em;color:var(--orange);vertical-align:top;margin-top:.2em}
+    .sb-lbl{font-size:.72rem;color:var(--muted);font-weight:300;line-height:1.5}
+    .sb-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-expo)}
+    .sb-item.lit::after{transform:scaleX(1)}
+    /* WHY */
+    .why-s{background:var(--bg);padding:8rem 7%}
+    .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+    .why-title{font-family:var(--font-d);font-style:italic;font-size:clamp(2.5rem,5.5vw,5rem);font-weight:400;color:var(--text);line-height:1.05;margin-bottom:2rem}
+    .why-title strong{font-style:normal;color:var(--orange)}
+    .why-text{font-size:.9rem;font-weight:300;color:rgba(240,235,228,.5);line-height:1.9;margin-bottom:1.5rem}
+    .why-points{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+    .why-point{display:flex;gap:1rem;padding:1rem 1.2rem;background:var(--surface);border-radius:12px;border:1px solid var(--stroke);transition:all .3s}
+    .why-point:hover{border-color:rgba(232,80,30,.3)}
+    .why-point-icon{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
+    .why-point-text{font-size:.84rem;font-weight:300;color:rgba(240,235,228,.6);line-height:1.6}
+    .why-point-text strong{display:block;font-weight:600;color:var(--text);margin-bottom:.2rem;font-size:.86rem}
+    /* MODALITIES */
+    .mod-s{background:var(--surface);padding:7rem 7%}
+    .mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:3rem}
+    .mod-card{background:var(--bg);border:1px solid var(--stroke);border-radius:20px;padding:2rem;transition:all .4s var(--ease-expo)}
+    .mod-card:hover{border-color:rgba(232,80,30,.3);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+    .mod-icon{font-size:2rem;margin-bottom:1.2rem}
+    .mod-title{font-family:var(--font-d);font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.6rem;letter-spacing:.04em}
+    .mod-text{font-size:.82rem;font-weight:300;color:rgba(240,235,228,.45);line-height:1.7;margin-bottom:1.2rem}
+    .mod-roi{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .9rem;background:rgba(232,80,30,.1);border:1px solid rgba(232,80,30,.2);border-radius:50px;font-size:.72rem;font-weight:600;color:var(--orange)}
+    /* FAQ */
+    .faq-s{background:var(--bg);padding:7rem 7%}
+    .faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start}
+    .faq-list{display:flex;flex-direction:column;gap:.6rem}
+    .faq-item{border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--surface);transition:border-color .3s}
+    .faq-item.open{border-color:rgba(232,80,30,.3)}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.4rem;cursor:pointer;font-size:.88rem;font-weight:500;color:var(--text);transition:color .3s;gap:1rem}
+    .faq-q:hover{color:var(--orange)}
+    .faq-arrow{font-size:1rem;color:var(--muted);transition:transform .3s;flex-shrink:0}
+    .faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--orange)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+    .faq-item.open .faq-a{max-height:300px;padding:0 1.4rem 1.2rem}
+    .faq-a p{font-size:.83rem;font-weight:300;color:rgba(240,235,228,.5);line-height:1.75}
+    /* COMPARISON */
+    .comp-s{background:var(--surface);padding:7rem 7%}
+    .comp-table{margin-top:3rem;border:1px solid var(--stroke);border-radius:16px;overflow:hidden}
+    .comp-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;border-bottom:1px solid var(--stroke)}
+    .comp-row:last-child{border-bottom:none}
+    .comp-row.header{background:var(--surface2)}
+    .comp-cell{padding:1rem 1.4rem;font-size:.83rem;font-weight:300;color:rgba(240,235,228,.5)}
+    .comp-row.header .comp-cell{font-weight:600;color:var(--text);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    .comp-cell.hl{color:var(--orange);font-weight:600}
+    .comp-cell.good::before{content:"✓ ";color:#4CAF50}
+    .comp-cell.bad::before{content:"✗ ";color:#f44336}
+    /* STEPS */
+    .steps-s{background:var(--bg);padding:7rem 7%}
+    .steps-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0;margin-top:3rem;border:1px solid var(--stroke);border-radius:16px;overflow:hidden}
+    .step-item{padding:2.5rem 1.8rem;border-right:1px solid var(--stroke);position:relative;transition:background .3s}
+    .step-item:last-child{border-right:none}.step-item:hover{background:var(--surface)}
+    .step-num{font-family:var(--font-d);font-size:3.5rem;font-weight:700;color:rgba(255,255,255,.04);line-height:1;margin-bottom:1.2rem}
+    .step-title{font-family:var(--font-d);font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.6rem;letter-spacing:.05em}
+    .step-text{font-size:.78rem;font-weight:300;color:rgba(240,235,228,.4);line-height:1.65}
+    .step-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-expo)}
+    .step-item.lit::after{transform:scaleX(1)}
+    /* CTA */
+    .cta-s{background:var(--surface);padding:9rem 7%;text-align:center;position:relative;overflow:hidden}
+    .cta-bg-text{position:absolute;font-family:var(--font-d);font-size:18vw;font-weight:700;color:rgba(255,255,255,.022);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;letter-spacing:-.04em;user-select:none}
+    .cta-label{font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:block}
+    .cta-title{font-family:var(--font-d);font-size:clamp(2rem,5vw,4.5rem);font-weight:600;color:var(--text);line-height:1.08;margin-bottom:1.2rem}.cta-title em{font-style:italic;color:var(--orange);font-weight:400}
+    .cta-sub{font-size:.9rem;color:var(--muted);max-width:440px;margin:0 auto 3rem;line-height:1.75;font-weight:300}
+    .cta-acts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .cta-btn-p{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 2.8rem;background:var(--orange);color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border-radius:50px;transition:all .3s}.cta-btn-p:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,80,30,.45)}
+    .cta-btn-o{display:inline-flex;align-items:center;padding:1.1rem 2.8rem;border:1px solid var(--stroke);color:var(--text);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;border-radius:50px;transition:all .3s}.cta-btn-o:hover{border-color:var(--orange);color:var(--orange)}
+    .footer{background:#000;padding:3.5rem 7% 2rem;border-top:1px solid var(--stroke)}
+    .ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid var(--stroke)}
+    .ft-brand{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem}.ft-logo{width:28px;height:28px;border-radius:7px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:#fff}
+    .ft-name{font-family:var(--font-d);font-size:1rem;font-weight:600;color:var(--text);letter-spacing:.07em}.ft-name span{color:var(--orange)}
+    .ft-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:1.5rem}.ft-soc{display:flex;gap:.5rem}
+    .ft-soc a{width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--muted);transition:all .3s}.ft-soc a:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+    .ft-col h4{font-family:var(--font-d);font-size:.73rem;letter-spacing:.14em;color:var(--orange);margin-bottom:1rem}.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}.ft-col a{font-size:.78rem;color:var(--muted);transition:color .3s;font-weight:300}.ft-col a:hover{color:var(--text)}
+    .ft-bot{border-top:1px solid var(--stroke);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.7rem;color:rgba(255,255,255,.2)}.ft-bot a{color:var(--orange)}
+    /* INVESTMENT CARDS */
+    .inv-s{background:var(--bg);padding:7rem 7%}
+    .inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-top:3rem}
+    .inv-card{background:var(--surface);border:1px solid var(--stroke);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .4s var(--ease-expo);text-decoration:none;display:block}
+    .inv-card:hover{border-color:rgba(232,80,30,.3);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+    .inv-card-img{height:200px;overflow:hidden;position:relative}
+    .inv-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease-expo)}
+    .inv-card:hover .inv-card-img img{transform:scale(1.07)}
+    .inv-card-img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+    .inv-card:hover .inv-card-img-ov{opacity:1}
+    .inv-card-roi{position:absolute;top:.8rem;right:.8rem;background:rgba(232,80,30,.9);backdrop-filter:blur(8px);color:#fff;padding:.25rem .75rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:.08em}
+    .inv-card-body{padding:1.4rem}
+    .inv-card-tag{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem}
+    .inv-card-name{font-family:var(--font-d);font-size:1rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
+    .inv-card-loc{font-size:.75rem;color:var(--muted);margin-bottom:.9rem}
+    .inv-card-metrics{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem}
+    .inv-metric{background:var(--surface2);border-radius:10px;padding:.65rem .8rem;text-align:center}
+    .inv-metric-val{font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--orange)}
+    .inv-metric-lbl{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.15rem}
+    .inv-card-price{font-size:.72rem;color:var(--muted)}
+    .inv-card-price strong{font-family:var(--font-d);font-size:1.15rem;color:var(--text);font-weight:700}
+    .inv-card-cta{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--stroke);padding-top:1rem;margin-top:1rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+    .wa{position:fixed;bottom:2rem;right:2rem;z-index:998;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.45);animation:wap 3s infinite;transition:transform .3s}.wa:hover{transform:scale(1.1)}.wa svg{width:26px;height:26px;fill:white}
+    @keyframes wap{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.45)}50%{box-shadow:0 6px 38px rgba(37,211,102,.7),0 0 0 7px rgba(37,211,102,.1)}}
+    @media(max-width:900px){.stats-banner-grid{grid-template-columns:1fr 1fr}.sb-item:nth-child(2){border-right:none}.sb-item:nth-child(3){border-top:1px solid var(--stroke)}.why-inner{grid-template-columns:1fr;gap:2rem}.faq-inner{grid-template-columns:1fr;gap:2rem}.comp-row{grid-template-columns:1fr 1fr}.comp-row.header .comp-cell:first-child,.comp-row .comp-cell:first-child{display:none}.steps-list{grid-template-columns:1fr 1fr}.step-item{border-bottom:1px solid var(--stroke)}.ft-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+    @media(max-width:600px){.stats-banner-grid{grid-template-columns:1fr}.sb-item{border-right:none;border-bottom:1px solid var(--stroke)}.steps-list{grid-template-columns:1fr}.step-item:last-child{border-bottom:none}.ft-grid{grid-template-columns:1fr}}
+  
+  /* MARQUEE */
+  .vv-marquee-wrap{background:var(--surface);border-top:1px solid var(--stroke);overflow:hidden;padding:1.4rem 0;white-space:nowrap}
+  .vv-marquee{display:flex;overflow:hidden}.vv-marquee-track{display:flex;align-items:center;gap:0;white-space:nowrap;will-change:transform}
+  .vv-marquee-track span{font-family:var(--font-d);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,235,228,.18);padding:0 2.2rem}
+  .vv-marquee-track span em{color:var(--orange);font-style:normal}
+
+  
+    /* BAIRROS DROPDOWN */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.3rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arrow{font-size:.55rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arrow{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);min-width:180px;background:rgba(10,10,10,.95);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.5rem;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateX(-50%) translateY(-6px);z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:6px;height:6px;border-radius:50%;background:#E8501E;flex-shrink:0}
+  
+    /* BAIRROS DROPDOWN */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.3rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arrow{font-size:.55rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arrow{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);min-width:180px;background:rgba(10,10,10,.95);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.5rem;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateX(-50%) translateY(-6px);z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:6px;height:6px;border-radius:50%;background:#E8501E;flex-shrink:0}
+  
+    /* BAIRROS + MAIS dropdowns */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.28rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arr{font-size:.5rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arr{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%) translateY(-6px);min-width:175px;background:rgba(10,10,10,.97);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.45rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-menu::before{content:'';position:absolute;bottom:100%;left:0;right:0;height:.6rem}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.6rem 1rem;font-size:.76rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap;text-decoration:none}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:5px;height:5px;border-radius:50%;background:#E8501E;flex-shrink:0}
+    .nav-drop-sep{height:1px;background:#1f1f1f;margin:.35rem .5rem}
+  
+    .vv-h1-seo{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Viva Vendas">
+  <meta property="og:title" content="Por que Investir em Imóveis em Niterói? — Viva Vendas">
+  <meta property="og:description" content="Niterói valorizou 10,6% ao ano. Veja por que investir em imóveis à beira-mar em Camboinhas, Icaraí e Piratininga é uma das melhores opções do Rio de Janeiro.">
+  <meta property="og:url" content="https://vivavendas.com.br/investir">
+  <meta property="og:image" content="https://vivavendas.com.br/img/og-cover.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Por que Investir em Imóveis em Niterói? — Viva Vendas">
+  <meta name="twitter:description" content="Niterói valorizou 10,6% ao ano. Veja por que investir em imóveis à beira-mar em Camboinhas, Icaraí e Piratininga é uma das melhores opções do Rio de Janeiro.">
+  <meta name="twitter:image" content="https://vivavendas.com.br/img/og-cover.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vivavendas.com.br"}, {"@type": "ListItem", "position": 2, "name": "Investir", "item": "https://vivavendas.com.br/investir"}]}</script>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "url": "https://vivavendas.com.br/investir", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hero-title", ".s-title", ".faq-a p", ".hero-sub"]}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Por que Investir em Imóveis em Niterói?", "datePublished": "2025-01-01", "dateModified": "2026-06-01", "author": {"@type": "Organization", "@id": "https://vivavendas.com.br/#organization", "name": "Viva Vendas"}, "publisher": {"@type": "Organization", "name": "Viva Vendas", "@id": "https://vivavendas.com.br/#organization"}, "mainEntityOfPage": "https://vivavendas.com.br/investir", "inLanguage": "pt-BR", "about": {"@type": "Thing", "name": "Imóveis em Niterói", "sameAs": "https://www.wikidata.org/wiki/Q174762"}}</script>
+<noscript><style>.rv,.rv-l,.rv-r{opacity:1!important;transform:none!important;transition:none!important}.hero-title,.hero-sub,.hero-kicker{transform:none!important;transition:none!important}.t-clip{overflow:visible!important}#loader{display:none!important}body.loading{overflow:auto!important}</style></noscript>
+</head>
+<body class="loading">
+<h1 class="vv-h1-seo">Por que Investir em Imóveis em Niterói?</h1>
+
+<div id="loader">
+  <div class="ldr-inner">
+    <div class="ldr-v-clip"><span class="ldr-v">V</span></div>
+    <div class="ldr-name-clip"><span class="ldr-name">VIVA VENDAS</span></div>
+    <div class="ldr-sep"><div class="ldr-sep-fill"></div></div>
+    <div class="ldr-city-clip"><span class="ldr-city">NITERÓI · VIVA VENDAS</span></div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-pill" id="navPill">
+    <a href="index.html" class="nav-logo-c" style="text-decoration:none">V</a>
+    <div class="nav-div"></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="index.html#imoveis" class="nav-link">Imóveis</a></li>
+      <li><a href="investir.html" class="nav-link active">Investir</a></li>
+      <li><a href="calculadora.html" class="nav-link">Calculadora</a></li>
+      <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+    
+      <li class="nav-drop">
+        <button class="nav-drop-btn">Bairros <span class="nav-drop-arr">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="bairros/camboinhas.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Camboinhas</a>
+          <a href="bairros/icarai.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Icaraí</a>
+          <a href="bairros/inga.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Ingá</a>
+          <a href="bairros/piratininga.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Piratininga</a>
+        </div>
+      </li>
+      <li class="nav-drop">
+        <button class="nav-drop-btn">Mais <span class="nav-drop-arr">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="comparativo.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Comparativo</a>
+          <a href="financiamento.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Financiamento</a>
+          <a href="fgts.html" class="nav-drop-item"><span class="nav-drop-dot"></span>FGTS</a>
+          <a href="aluguel-temporada.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Aluguel Temporada</a>
+          <a href="faq/index.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Perguntas Frequentes</a>
+          <div class="nav-drop-sep"></div>
+          <a href="sobre.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Sobre a Viva Vendas</a>
+          <a href="conviva.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Construtora Parceira</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-div"></div>
+    <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Quero uma consultoria de investimento." target="_blank" class="nav-cta">Consultoria Gratuita ↗</a>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"><img src="img/wp/FF55-Rooftop-Piscina-Vista-02-1-scaled.jpg" alt="Investir em Niterói" id="heroBg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-content">
+    <div class="hero-ey-clip"><span class="hero-eyebrow">GUIA DO INVESTIDOR · NITERÓI · RJ</span></div>
+    <div class="t-clip"><span class="hero-title">INVESTIR</span></div>
+    <div class="t-clip"><span class="hero-sub">em Niterói em 2025</span></div>
+    <p class="hero-body">10,63% de valorização ao ano. Cap rate de até 12%. Alta demanda e pouca oferta de imóveis novos. Descubra por que Niterói é o melhor mercado imobiliário do RJ agora.</p>
+  </div>
+</section>
+
+<section class="stats-banner">
+  <div class="stats-banner-grid">
+    <div class="sb-item"><div class="sb-num"><span id="sb1">0</span><sup>%</sup></div><div class="sb-lbl">Valorização anual<br>em Niterói (2025)</div></div>
+    <div class="sb-item"><div class="sb-num">R$<span id="sb2">0</span><sup>K/mês</sup></div><div class="sb-lbl">Renda estimada<br>aluguel por temporada</div></div>
+    <div class="sb-item"><div class="sb-num"><span id="sb3">0</span><sup>%</sup></div><div class="sb-lbl">Taxa de ocupação<br>Airbnb Camboinhas</div></div>
+    <div class="sb-item"><div class="sb-num"><span id="sb4">0</span><sup>%</sup></div><div class="sb-lbl">Cap rate anual<br>studio bem equipado</div></div>
+  </div>
+</section>
+
+<section class="why-s">
+  <div class="why-inner">
+    <div class="reveal">
+      <span class="s-eyebrow">Por que Niterói</span>
+      <div class="why-title">O mercado que<br>o Rio <strong>esqueceu</strong><br>de saturar.</div>
+      <p class="why-text">Enquanto o Rio de Janeiro viu sua oferta de imóveis novos explodir, Niterói manteve uma relação saudável entre oferta e demanda. Resultado: os preços sobem ano a ano sem correção brusca — exatamente o que o investidor quer.</p>
+      <a href="calculadora.html" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border:1px solid rgba(232,80,30,.4);color:var(--orange);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;border-radius:50px;transition:all .3s">Calcular meu ROI →</a>
+    </div>
+    <div class="why-points reveal-r">
+      <div class="why-point"><div class="why-point-icon">🏖</div><div class="why-point-text"><strong>Escassez de terrenos</strong>Niterói é uma cidade geográfica e demograficamente limitada. Não há terrenos para construção em massa nos bairros mais valorizados.</div></div>
+      <div class="why-point"><div class="why-point-icon">📈</div><div class="why-point-text"><strong>Valorização consistente</strong>10,63% ao ano em 2025 — acima da Selic e dos principais fundos imobiliários. Sem volatilidade, sem surpresas.</div></div>
+      <div class="why-point"><div class="why-point-icon">🌊</div><div class="why-point-text"><strong>Demanda de temporada</strong>Camboinhas, Ingá e Icaraí têm demanda crescente de aluguel por temporada (Airbnb/Booking) com taxa de ocupação acima de 72%.</div></div>
+      <div class="why-point"><div class="why-point-icon">💼</div><div class="why-point-text"><strong>Perfil do comprador</strong>Executivos cariocas buscam Niterói como segunda moradia e destino de férias — sustentando aluguel de longo prazo e temporada simultaneamente.</div></div>
+      <div class="why-point"><div class="why-point-icon">🏗</div><div class="why-point-text"><strong>Conviva Engenharia</strong>Construtora premiada pela ADEMI-Niterói com histórico de entrega no prazo, acabamento premium e alta liquidez de revenda.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="mod-s">
+  <span class="s-eyebrow reveal">Modalidades de Investimento</span>
+  <h2 class="s-title reveal d1">Qual estratégia<br>faz mais <em>sentido para você</em></h2>
+  <div class="mod-grid">
+    <div class="mod-card reveal">
+      <div class="mod-icon">📅</div>
+      <div class="mod-title">Aluguel por Temporada</div>
+      <p class="mod-text">Plataformas como Airbnb e Booking conectam você a turistas e visitantes. Studios em Camboinhas atingem 78% de ocupação e renda de R$ 3.500–6.000/mês.</p>
+      <span class="mod-roi">Cap Rate: até 12% a.a.</span>
+    </div>
+    <div class="mod-card reveal d1">
+      <div class="mod-icon">📝</div>
+      <div class="mod-title">Aluguel Anual</div>
+      <p class="mod-text">Renda passiva sem gestão intensa. 1Q em Icaraí ou Ingá atinge R$ 2.800–4.500/mês no aluguel anual, com inquilinos de perfil selecionado.</p>
+      <span class="mod-roi">Cap Rate: 6–9% a.a.</span>
+    </div>
+    <div class="mod-card reveal d2">
+      <div class="mod-icon">🔄</div>
+      <div class="mod-title">Valorização na Planta</div>
+      <p class="mod-text">Comprar na fase de lançamento garante o menor preço. Ao longo da obra, a valorização de 10,63% ao ano multiplica seu capital sem alugar nada.</p>
+      <span class="mod-roi">Ganho médio: 30–40% até a entrega</span>
+    </div>
+    <div class="mod-card reveal d3">
+      <div class="mod-icon">🏡</div>
+      <div class="mod-title">Segunda Moradia</div>
+      <p class="mod-text">Use o imóvel nas temporadas e alugue nos demais meses. Imóvel que se paga e ainda valoriza — com o bônus de ter um refúgio à beira-mar.</p>
+      <span class="mod-roi">Melhor custo-benefício</span>
+    </div>
+  </div>
+</section>
+
+<section class="comp-s">
+  <span class="s-eyebrow reveal">Comparativo</span>
+  <h2 class="s-title reveal d1">Imóvel vs <em>outras aplicações</em></h2>
+  <div class="comp-table reveal d2">
+    <div class="comp-row header">
+      <div class="comp-cell">Indicador</div>
+      <div class="comp-cell hl">Imóvel Niterói</div>
+      <div class="comp-cell">Tesouro Selic</div>
+      <div class="comp-cell">FIIs</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell">Retorno anual estimado</div>
+      <div class="comp-cell hl">10–12%</div>
+      <div class="comp-cell">10,5%</div>
+      <div class="comp-cell">8–11%</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell">Risco de volatilidade</div>
+      <div class="comp-cell good">Baixo</div>
+      <div class="comp-cell good">Muito Baixo</div>
+      <div class="comp-cell bad">Médio-Alto</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell">Uso do bem</div>
+      <div class="comp-cell good">Sim (morar/veranear)</div>
+      <div class="comp-cell bad">Não</div>
+      <div class="comp-cell bad">Não</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell">Geração de renda passiva</div>
+      <div class="comp-cell good">Sim (aluguel)</div>
+      <div class="comp-cell bad">Não</div>
+      <div class="comp-cell good">Sim (dividendos)</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell">Proteção inflacionária</div>
+      <div class="comp-cell good">Alta</div>
+      <div class="comp-cell good">Alta</div>
+      <div class="comp-cell">Média</div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-cell">Uso de FGTS</div>
+      <div class="comp-cell good">Sim</div>
+      <div class="comp-cell bad">Não</div>
+      <div class="comp-cell bad">Não</div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-s">
+  <span class="s-eyebrow reveal">Como Investir</span>
+  <h2 class="s-title reveal d1">Seu caminho em <em>5 passos</em></h2>
+  <div class="steps-list">
+    <div class="step-item reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Escolha o Empreendimento</div>
+      <p class="step-text">Defina seu objetivo: morar, alugar por temporada ou revender. Cada empreendimento Conviva tem um perfil diferente de ROI.</p>
+    </div>
+    <div class="step-item reveal d1">
+      <div class="step-num">02</div>
+      <div class="step-title">Simule seu Retorno</div>
+      <p class="step-text">Use nossa calculadora de ROI para projetar sua renda de aluguel, cap rate e valorização ao longo do tempo.</p>
+    </div>
+    <div class="step-item reveal d2">
+      <div class="step-num">03</div>
+      <div class="step-title">Escolha a Unidade</div>
+      <p class="step-text">Fale com nosso consultor e reserve a unidade que faz mais sentido para seu orçamento e estratégia de investimento.</p>
+    </div>
+    <div class="step-item reveal d3">
+      <div class="step-num">04</div>
+      <div class="step-title">Financie ou Parcele</div>
+      <p class="step-text">CEF, Bradesco, FGTS ou parcelamento direto durante a obra — diversas formas de viabilizar sua aquisição.</p>
+    </div>
+    <div class="step-item reveal d4">
+      <div class="step-num">05</div>
+      <div class="step-title">Receba e Rentabilize</div>
+      <p class="step-text">Na entrega, conectamos você a plataformas de aluguel e administradoras de imóveis para maximizar seu retorno.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-s">
+  <div class="faq-inner">
+    <div>
+      <span class="s-eyebrow reveal">Dúvidas Frequentes</span>
+      <h2 class="s-title reveal d1" style="margin-bottom:2rem">Perguntas de quem<br>pensa em <em>investir</em></h2>
+      <p style="font-size:.88rem;font-weight:300;color:rgba(240,235,228,.45);line-height:1.75">Não encontrou sua dúvida? Fale diretamente com um dos nossos consultores.</p>
+      <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Tenho dúvidas sobre investimento em Niterói." target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;padding:.75rem 1.8rem;background:var(--orange);color:#fff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;border-radius:50px;transition:all .3s">💬 Tirar Dúvidas Agora</a>
+    </div>
+    <div class="faq-list reveal d1">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Vale a pena comprar na planta em Niterói? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a"><p>Sim. Comprar na fase de lançamento garante o menor preço por m² e permite aproveitar toda a valorização da obra — em média 30 a 40% até a entrega. Além disso, as condições de pagamento durante a obra são mais flexíveis do que o financiamento bancário tradicional.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Posso usar FGTS na compra? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a"><p>Sim, para imóveis enquadrados no programa habitacional. Parte dos empreendimentos Conviva permite uso de FGTS para amortização ou entrada. Nosso consultor verifica o enquadramento do imóvel que você escolher.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Qual o rendimento médio de aluguel por temporada? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a"><p>Studios bem equipados em Camboinhas atingem R$ 3.500 a R$ 6.000 por mês com aluguel por temporada via Airbnb, com taxa de ocupação de até 78%. Em Icaraí, o perfil é de aluguel anual ou corporativo, com renda de R$ 2.800 a R$ 4.500/mês.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo leva até a entrega do imóvel? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a"><p>Os empreendimentos Conviva em fase de obras têm previsão de entrega em 2027. O Conviva Piratininga já foi entregue e está disponível para compra imediata. Acompanhe o andamento de cada obra na página do empreendimento.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Qual a melhor opção para investir hoje? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a"><p>Depende do seu objetivo. Para aluguel por temporada: Conviva Brise em Camboinhas. Para valorização + aluguel anual: Life Ingá no Ingá. Para compra imediata pronto para alugar: Conviva Piratininga. Fale com nosso consultor para uma análise personalizada.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Existe risco de obra não ser entregue? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a"><p>A Conviva Engenharia tem histórico de entrega no prazo e patrimônio de afetação em todos os empreendimentos — o que separa legalmente o patrimônio da obra do patrimônio da construtora, protegendo o comprador mesmo em cenários adversos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EMPREENDIMENTOS PARA INVESTIR ── -->
+<section class="inv-s">
+  <span class="s-eyebrow reveal">Portfólio Disponível</span>
+  <h2 class="s-title reveal d1">Escolha onde <em>seu dinheiro trabalha</em></h2>
+  <div class="inv-grid">
+
+    <a href="imoveis/brise.html" class="inv-card">
+      <div class="inv-card-img">
+        <img src="img/wp/Fachada-scaled.jpeg" alt="Conviva Brise Camboinhas" loading="lazy">
+        <div class="inv-card-img-ov"></div>
+        <span class="inv-card-roi">Cap Rate até 12%</span>
+      </div>
+      <div class="inv-card-body">
+        <div class="inv-card-tag">Camboinhas · 150m da praia · Lançamento</div>
+        <div class="inv-card-name">Conviva Brise</div>
+        <div class="inv-card-loc">Studios a coberturas · 37m² – 95m² · Rooftop Piscina</div>
+        <div class="inv-card-metrics">
+          <div class="inv-metric"><div class="inv-metric-val">10,6%</div><div class="inv-metric-lbl">Valorização/ano</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">78%</div><div class="inv-metric-lbl">Ocupação Airbnb</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">R$5k</div><div class="inv-metric-lbl">Renda estimada/mês</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">+30%</div><div class="inv-metric-lbl">Ganho até entrega</div></div>
+        </div>
+        <div class="inv-card-price">A partir de <strong>R$ 480.000</strong></div>
+        <div class="inv-card-cta"><span>Ver Empreendimento</span><span>→</span></div>
+      </div>
+    </a>
+
+    <a href="imoveis/life-inga.html" class="inv-card">
+      <div class="inv-card-img">
+        <img src="img/wp/PauloAlves-03-alta.jpg" alt="Conviva Life Ingá" loading="lazy">
+        <div class="inv-card-img-ov"></div>
+        <span class="inv-card-roi">Cap Rate 9% a.a.</span>
+      </div>
+      <div class="inv-card-body">
+        <div class="inv-card-tag">Ingá · 190m da praia · Destaque</div>
+        <div class="inv-card-name">Conviva Life Ingá</div>
+        <div class="inv-card-loc">Studios / 1Q / 2Q · 488m² de lazer</div>
+        <div class="inv-card-metrics">
+          <div class="inv-metric"><div class="inv-metric-val">10,6%</div><div class="inv-metric-lbl">Valorização/ano</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">R$3,8k</div><div class="inv-metric-lbl">Aluguel anual/mês</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">70%</div><div class="inv-metric-lbl">Ocupação temporada</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">+35%</div><div class="inv-metric-lbl">Ganho até entrega</div></div>
+        </div>
+        <div class="inv-card-price">A partir de <strong>R$ 520.000</strong></div>
+        <div class="inv-card-cta"><span>Ver Empreendimento</span><span>→</span></div>
+      </div>
+    </a>
+
+    <a href="imoveis/piratininga.html" class="inv-card">
+      <div class="inv-card-img">
+        <img src="img/wp/thumbs/Sala-406.jpg" alt="Conviva Piratininga" loading="lazy">
+        <div class="inv-card-img-ov"></div>
+        <span class="inv-card-roi">Entrega Imediata</span>
+      </div>
+      <div class="inv-card-body">
+        <div class="inv-card-tag">Piratininga · 3min do mar · Pronto</div>
+        <div class="inv-card-name">Conviva Piratininga</div>
+        <div class="inv-card-loc">1 Quarto · Quadra de praia · Entrega imediata</div>
+        <div class="inv-card-metrics">
+          <div class="inv-metric"><div class="inv-metric-val">10,6%</div><div class="inv-metric-lbl">Valorização/ano</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">R$3k</div><div class="inv-metric-lbl">Aluguel/mês</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">0</div><div class="inv-metric-lbl">Meses p/ alugar</div></div>
+          <div class="inv-metric"><div class="inv-metric-val">8%</div><div class="inv-metric-lbl">Cap rate</div></div>
+        </div>
+        <div class="inv-card-price">A partir de <strong>R$ 390.000</strong></div>
+        <div class="inv-card-cta"><span>Ver Empreendimento</span><span>→</span></div>
+      </div>
+    </a>
+
+  </div><!-- /.inv-grid -->
+</section>
+
+<!-- CTA FINAL -->
+<section style="background:var(--surface);padding:7rem 7%;text-align:center;border-top:1px solid var(--stroke)">
+  <span class="s-eyebrow" style="justify-content:center">Próximo Passo</span>
+  <h2 class="s-title" style="margin-bottom:1.5rem;margin-top:1rem">Pronto para <em>investir em Niterói?</em></h2>
+  <p style="font-size:.9rem;color:rgba(240,235,228,.45);max-width:460px;margin:0 auto 2.5rem;line-height:1.9">Fale com um dos nossos consultores e receba uma análise personalizada do melhor empreendimento para o seu perfil de investidor.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Quero uma consultoria de investimento." target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--orange);color:#fff;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;border-radius:50px;transition:all .3s">💬 Falar com Consultor</a>
+    <a href="calculadora.html" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border:1px solid rgba(232,80,30,.35);color:var(--orange);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;border-radius:50px;transition:all .3s">📊 Calcular meu ROI</a>
+  </div>
+</section>
+
+
+<section style="padding:3.5rem 7%;background:var(--surface);border-top:1px solid var(--stroke)">
+  <p style="font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--orange);text-transform:uppercase;margin-bottom:1.5rem">Leia também</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem">
+    <a href="blog/niteroi-rio-comparativo-investimento.html" style="display:block;padding:1.2rem 1.4rem;background:var(--bg);border:1px solid var(--stroke);border-radius:12px;transition:border-color .2s;text-decoration:none;border-left:3px solid var(--orange)">
+      <p style="font-size:.78rem;font-weight:600;color:var(--white);line-height:1.4;margin-bottom:.5rem">Niterói vs Rio de Janeiro — onde investir em imóveis?</p>
+      <span style="font-size:.7rem;color:var(--orange);font-weight:500">Ler artigo →</span>
+    </a>
+    <a href="blog/retorno-aluguel-temporada-niteroi.html" style="display:block;padding:1.2rem 1.4rem;background:var(--bg);border:1px solid var(--stroke);border-radius:12px;transition:border-color .2s;text-decoration:none;border-left:3px solid var(--orange)">
+      <p style="font-size:.78rem;font-weight:600;color:var(--white);line-height:1.4;margin-bottom:.5rem">Retorno do aluguel por temporada em Niterói — simulação</p>
+      <span style="font-size:.7rem;color:var(--orange);font-weight:500">Ler artigo →</span>
+    </a>
+    <a href="blog/preco-m2-niteroi.html" style="display:block;padding:1.2rem 1.4rem;background:var(--bg);border:1px solid var(--stroke);border-radius:12px;transition:border-color .2s;text-decoration:none;border-left:3px solid var(--orange)">
+      <p style="font-size:.78rem;font-weight:600;color:var(--white);line-height:1.4;margin-bottom:.5rem">Preço do m² em Niterói por bairro — Guia 2025</p>
+      <span style="font-size:.7rem;color:var(--orange);font-weight:500">Ler artigo →</span>
+    </a>
+  </div>
+</section>
+<footer class="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand"><div class="ft-logo">V</div><div class="ft-name">Viva <span>Vendas</span></div></div>
+      <p class="ft-desc">Consultoria imobiliária exclusiva em empreendimentos Conviva em Niterói. Expertise local, atendimento personalizado e transparência total.</p>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/vivavendas.niteroi/" target="_blank">ig</a>
+        <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank">wa</a>
+        <a href="https://www.youtube.com/@convivaengenharia" target="_blank">yt</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Empreendimentos</h4><ul>
+      <li><a href="imoveis/brise.html">Conviva Brise</a></li>
+      <li><a href="imoveis/life-inga.html">Life Ingá</a></li>
+      <li><a href="imoveis/life-camboinhas.html">Life Camboinhas</a></li>
+      <li><a href="imoveis/piratininga.html">Piratininga</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Bairros</h4><ul>
+      <li><a href="bairros/camboinhas.html">Camboinhas</a></li>
+      <li><a href="bairros/icarai.html">Icaraí</a></li>
+      <li><a href="bairros/inga.html">Ingá</a></li>
+      <li><a href="bairros/piratininga.html">Piratininga</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Recursos</h4><ul>
+      <li><a href="calculadora.html">Calculadora ROI</a></li>
+      <li><a href="investir.html">Guia do Investidor</a></li>
+      <li><a href="financiamento.html">Financiamento</a></li>
+      <li><a href="fgts.html">FGTS</a></li>
+      <li><a href="aluguel-temporada.html">Aluguel Temporada</a></li>
+      <li><a href="faq/index.html">Perguntas Frequentes</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Guias & Blog</h4><ul>
+      <li><a href="blog/preco-m2-niteroi.html">Preço do m² em Niterói</a></li>
+      <li><a href="blog/camboinhas-vs-piratininga.html">Camboinhas vs Piratininga</a></li>
+      <li><a href="blog/niteroi-rio-comparativo-investimento.html">Niterói vs Rio — Investimento</a></li>
+      <li><a href="blog/retorno-aluguel-temporada-niteroi.html">Retorno Aluguel Temporada</a></li>
+      <li><a href="blog/financiamento-apartamento-planta.html">Financiamento na Planta</a></li>
+      <li><a href="blog/conviva-engenharia-historico.html">Conviva — Histórico</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Contato</h4><ul>
+      <li><a href="tel:+552134921790">(21) 3492-1790</a></li>
+      <li><a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank">(21) 96703-1691</a></li>
+      <li><a href="#">contato@vivavendas.com.br</a></li>
+      <li><a href="sobre.html">Sobre a Viva Vendas</a></li>
+      <li><a href="conviva.html">Construtora Parceira</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 <strong>Viva Vendas</strong> · Todos os direitos reservados</span>
+    <span>Preços ilustrativos · <a href="conviva.html">Construtora Parceira →</a></span>
+  </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Olá! Vim pelo site Viva Vendas." target="_blank" class="wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Loader dismiss
+  (function(){
+    var loader = document.getElementById('loader');
+    var body = document.body;
+    setTimeout(function(){
+      loader.classList.add('exit');
+      setTimeout(function(){
+        loader.style.display = 'none';
+        body.classList.remove('loading');
+        var h=document.getElementById('hero');if(h)h.classList.add('started');
+      }, 820);
+    }, 1400);
+  })();
+
+  // Nav scroll
+  (function(){
+    var pill = document.getElementById('navPill');
+    window.addEventListener('scroll', function(){ pill.classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
+  })();
+
+  // Reveal on scroll via IntersectionObserver
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('vis'); });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal,.reveal-r').forEach(function(el){ obs.observe(el); });
+
+  // Stats counters
+  var counters = [
+    {id:'sb1', target:10.63, dec:true, suffix:''},
+    {id:'sb2', target:5,    dec:false, suffix:''},
+    {id:'sb3', target:78,   dec:false, suffix:''},
+    {id:'sb4', target:12,   dec:false, suffix:''}
+  ];
+  var statsObs = new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting) return;
+    statsObs.disconnect();
+    counters.forEach(function(c){
+      var el = document.getElementById(c.id);
+      if(!el) return;
+      var start = 0, end = c.target, dur = 1800, startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / dur, 1);
+        var val = start + (end - start) * (progress < 0.5 ? 2*progress*progress : -1+(4-2*progress)*progress);
+        el.textContent = c.dec ? val.toFixed(1) : Math.round(val);
+        if(progress < 1) requestAnimationFrame(step);
+        else el.textContent = c.dec ? end.toFixed(2) : end;
+      }
+      requestAnimationFrame(step);
+    });
+  }, {threshold:0.5});
+  var sb = document.querySelector('.stats-banner-grid');
+  if(sb) statsObs.observe(sb);
+
+  // FAQ accordion
+  function toggleFaq(btn){
+    var item = btn.closest('.faq-item');
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+    if(!wasOpen) item.classList.add('open');
+  }
+  // FAQ handled by onclick attributes
+</script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de ROI Imobiliário – Quanto rende um apartamento em Niterói? | Viva Vendas</title>
+  <meta name="description" content="Calcule o retorno sobre investimento de um apartamento em Niterói. Simule valorização, renda com aluguel por temporada, uso de FGTS e parcelas do financiamento. Gratuito e sem cadastro.">
+  <meta name="keywords" content="calculadora ROI imóvel Niterói, retorno investimento apartamento, quanto rende aluguel temporada Camboinhas, calculadora financiamento imóvel, ROI imobiliário">
+  <link rel="canonical" href="https://vivavendas.com.br/calculadora">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora de ROI Imobiliário – Viva Vendas","description":"Ferramenta gratuita para calcular o retorno sobre investimento em apartamentos de Niterói.","url":"https://vivavendas.com.br/calculadora","applicationCategory":"FinancialApplication","offers":{"@type":"Offer","price":0,"priceCurrency":"BRL"}}
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .calc-section { background: var(--off-white); border-radius: var(--radius-xl); padding: 2.5rem; }
+    .range-group { margin-bottom: 1.5rem; }
+    .range-group label { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--gray); margin-bottom: 0.6rem; }
+    .range-group label .val { font-family: var(--font-heading); font-size: 1.1rem; color: var(--orange); font-weight: 700; letter-spacing: 0; text-transform: none; }
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .result-card { background: var(--black); color: #fff; border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; }
+    .result-card.highlight { background: var(--orange); }
+    .result-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.3rem; }
+    .result-val { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; line-height: 1; }
+    .result-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem; }
+    .chart-bar { height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; margin-top: 0.5rem; }
+    .chart-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--orange), var(--orange-light)); transition: width 0.6s ease; }
+    .comparison-row { display: flex; align-items: center; gap: 1rem; padding: 1rem; border-radius: var(--radius); background: var(--off-white); margin-bottom: 0.7rem; }
+    .comparison-label { font-size: 0.85rem; font-weight: 500; min-width: 140px; }
+    .comparison-bar { flex: 1; height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+    .comparison-fill { height: 100%; border-radius: 5px; }
+    .comparison-val { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; min-width: 60px; text-align: right; }
+    .mode-btn { padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.78rem; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border: 2px solid var(--border); background: var(--white); color: var(--gray); }
+    .mode-btn.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+  
+  /* ── DARK PILL NAV override ── */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:1.2rem 1rem;pointer-events:none;background:none;box-shadow:none}
+  .nav-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem;background:rgba(10,10,10,.65);backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.06);border-radius:50px;pointer-events:auto;transition:all .3s}
+  .nav-pill.scrolled{background:rgba(10,10,10,.9);border-color:#1f1f1f;box-shadow:0 4px 28px rgba(0,0,0,.6)}
+  .nav-logo-c{width:34px;height:34px;border-radius:50%;background:linear-gradient(90deg,#FF6B35,#E8501E);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;color:#fff;transition:transform .3s cubic-bezier(0.16,1,0.3,1);text-decoration:none}
+  .nav-logo-c:hover{transform:scale(1.12)}
+  .nav-div{width:1px;height:18px;background:#1f1f1f;margin:0 .2rem}
+  .nav-links{display:flex;list-style:none;gap:.2rem}
+  .nav-link{display:block;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;white-space:nowrap;text-decoration:none}
+  .nav-link:hover,.nav-link.active{color:#f0ebe4;background:#1f1f1f}
+  .nav-cta{position:relative;display:inline-flex;align-items:center;gap:.3rem;padding:.45rem 1.1rem;font-size:.77rem;font-weight:500;color:#f0ebe4;border-radius:50px;overflow:hidden;white-space:nowrap;text-decoration:none}
+  .nav-cta::before{content:'';position:absolute;inset:-1px;border-radius:50px;background:linear-gradient(90deg,#FF6B35,#E8501E);opacity:0;transition:opacity .3s;z-index:-1}
+  .nav-cta::after{content:'';position:absolute;inset:0;border-radius:50px;background:#111;z-index:-1}
+  .nav-cta:hover::before{opacity:1}
+  @media(max-width:1024px){.nav-links{display:none}}
+
+  /* MARQUEE */
+  .vv-marquee-wrap{background:var(--surface);border-top:1px solid var(--stroke);overflow:hidden;padding:1.4rem 0;white-space:nowrap}
+  .vv-marquee{display:flex;overflow:hidden}.vv-marquee-track{display:flex;align-items:center;gap:0;white-space:nowrap;will-change:transform}
+  .vv-marquee-track span{font-family:var(--font-d);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,235,228,.18);padding:0 2.2rem}
+  .vv-marquee-track span em{color:var(--orange);font-style:normal}
+
+
+  /* ──── LOADER ──── */
+  #loader{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .ldr-inner{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .ldr-v-clip{overflow:hidden;line-height:1.05}
+  .ldr-v{display:block;font-family:var(--font-d,'Cinzel',serif);font-size:clamp(5rem,14vw,10rem);font-weight:700;color:#E8501E;letter-spacing:-.02em;transform:translateY(115%);animation:ldrUp .65s .1s cubic-bezier(0.16,1,0.3,1) forwards}
+  .ldr-name-clip{overflow:hidden;line-height:1.4;margin-top:-.15em}
+  .ldr-name{display:block;font-family:var(--font-d,'Cinzel',serif);font-size:clamp(.72rem,1.6vw,1rem);font-weight:600;letter-spacing:.55em;color:rgba(240,235,228,.85);transform:translateY(110%);animation:ldrUp .5s .42s cubic-bezier(0.16,1,0.3,1) forwards;padding-right:.55em}
+  .ldr-sep{width:clamp(140px,18vw,240px);height:1px;background:rgba(255,255,255,.07);margin:1.5rem auto;overflow:hidden}
+  .ldr-sep-fill{height:100%;background:linear-gradient(90deg,#FF6B35,#E8501E);transform:scaleX(0);transform-origin:left;animation:ldrLine .5s .72s cubic-bezier(0.16,1,0.3,1) forwards}
+  .ldr-city-clip{overflow:hidden;line-height:1.5}
+  .ldr-city{display:block;font-size:.52rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.2);transform:translateY(110%);animation:ldrUp .38s 1.0s ease forwards;padding-right:.38em}
+  @keyframes ldrUp{to{transform:translateY(0)}}
+  @keyframes ldrLine{to{transform:scaleX(1)}}
+  #loader.exit{transform:translateY(-100%);transition:transform .8s cubic-bezier(.76,0,.24,1)}
+  body.loading{overflow:hidden}
+
+  
+    /* BAIRROS DROPDOWN */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.3rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arrow{font-size:.55rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arrow{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);min-width:180px;background:rgba(10,10,10,.95);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.5rem;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateX(-50%) translateY(-6px);z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:6px;height:6px;border-radius:50%;background:#E8501E;flex-shrink:0}
+  
+    /* BAIRROS DROPDOWN */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.3rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arrow{font-size:.55rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arrow{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);min-width:180px;background:rgba(10,10,10,.95);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.5rem;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;transform:translateX(-50%) translateY(-6px);z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.65rem 1rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:6px;height:6px;border-radius:50%;background:#E8501E;flex-shrink:0}
+  
+    /* BAIRROS + MAIS dropdowns */
+    .nav-drop{position:relative}
+    .nav-drop-btn{display:flex;align-items:center;gap:.28rem;padding:.45rem .9rem;font-size:.77rem;font-weight:500;color:rgba(240,235,228,.4);border-radius:50px;transition:all .25s;cursor:pointer;white-space:nowrap;background:none;border:none;font-family:inherit}
+    .nav-drop-btn:hover,.nav-drop:hover .nav-drop-btn{color:#f0ebe4;background:#1f1f1f}
+    .nav-drop-arr{font-size:.5rem;transition:transform .25s;display:inline-block}
+    .nav-drop:hover .nav-drop-arr{transform:rotate(180deg)}
+    .nav-drop-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%) translateY(-6px);min-width:175px;background:rgba(10,10,10,.97);backdrop-filter:blur(22px);border:1px solid #1f1f1f;border-radius:16px;padding:.45rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:200}
+    .nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    .nav-drop-menu::before{content:'';position:absolute;bottom:100%;left:0;right:0;height:.6rem}
+    .nav-drop-item{display:flex;align-items:center;gap:.5rem;padding:.6rem 1rem;font-size:.76rem;font-weight:500;color:rgba(240,235,228,.5);border-radius:10px;transition:all .2s;white-space:nowrap;text-decoration:none}
+    .nav-drop-item:hover{background:#1f1f1f;color:#f0ebe4}
+    .nav-drop-dot{width:5px;height:5px;border-radius:50%;background:#E8501E;flex-shrink:0}
+    .nav-drop-sep{height:1px;background:#1f1f1f;margin:.35rem .5rem}
+  </style>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Viva Vendas">
+  <meta property="og:title" content="Calculadora de Rentabilidade Imobiliária — Viva Vendas">
+  <meta property="og:description" content="Calcule gratuitamente a rentabilidade do seu investimento imobiliário em Niterói. ROI, cap rate e retorno de aluguel por temporada.">
+  <meta property="og:url" content="https://vivavendas.com.br/calculadora">
+  <meta property="og:image" content="https://vivavendas.com.br/img/og-cover.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de Rentabilidade Imobiliária — Viva Vendas">
+  <meta name="twitter:description" content="Calcule gratuitamente a rentabilidade do seu investimento imobiliário em Niterói. ROI, cap rate e retorno de aluguel por temporada.">
+  <meta name="twitter:image" content="https://vivavendas.com.br/img/og-cover.jpg">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Como calcular o retorno de um apartamento para aluguel por temporada em Niterói?", "acceptedAnswer": {"@type": "Answer", "text": "Multiplique a diária média pela taxa de ocupação mensal (30 dias). Por exemplo: R$ 220/dia × 78% × 30 dias = R$ 5.148/mês. Divida pelo valor do imóvel para obter o cap rate mensal e anualizar. Em Camboinhas, a diária média gira em torno de R$ 180–250 com ocupação de 70–85%."}}, {"@type": "Question", "name": "Quanto valoriza um imóvel na planta em Niterói até a entrega?", "acceptedAnswer": {"@type": "Answer", "text": "Historicamente, apartamentos em Niterói valorizaram entre 15% e 25% entre o lançamento e a entrega das chaves. Em bairros à beira-mar como Camboinhas e Piratininga, essa valorização pode ser ainda maior pela escassez de novos terrenos disponíveis."}}, {"@type": "Question", "name": "Vale mais a pena quitar ou financiar o imóvel?", "acceptedAnswer": {"@type": "Answer", "text": "Depende do custo do dinheiro. Se sua taxa de financiamento (ex: 9% a.a.) for inferior ao retorno esperado do imóvel (valorização + aluguel), pode valer a pena financiar e manter capital investido em outros ativos. Nossa calculadora simula os dois cenários automaticamente."}}, {"@type": "Question", "name": "O FGTS pode ser usado em imóveis Conviva em Niterói?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Os empreendimentos Conviva são enquadrados no SBPE e aceitam uso do FGTS como entrada ou amortização, desde que o comprador atenda os requisitos: mínimo 3 anos de contribuição, primeiro imóvel residencial e imóvel dentro dos limites do SFH (até R$ 1,5 milhão no Rio de Janeiro)."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Como calcular a rentabilidade de um imóvel em Niterói", "description": "Aprenda a calcular o retorno do investimento imobiliário em Niterói — cap rate, rentabilidade de aluguel e valorização.", "totalTime": "PT15M", "step": [{"@type": "HowToStep", "position": 1, "name": "Insira o valor do imóvel", "text": "Digite o valor de compra do apartamento. Para imóveis na planta, use o valor do contrato. Para prontos, use o valor de mercado atual.", "url": "https://vivavendas.com.br/calculadora#valor"}, {"@type": "HowToStep", "position": 2, "name": "Informe o aluguel esperado", "text": "Para aluguel tradicional, pesquise valores similares no bairro. Para temporada, estime a diária média (Camboinhas: R$ 180–250) e a taxa de ocupação (70–85% no pico de temporada).", "url": "https://vivavendas.com.br/calculadora#aluguel"}, {"@type": "HowToStep", "position": 3, "name": "Adicione as despesas", "text": "Inclua condomínio, IPTU, taxa de administração (se usar plataforma de temporada) e eventuais custos de manutenção. O resultado será o rendimento líquido mensal.", "url": "https://vivavendas.com.br/calculadora#despesas"}, {"@type": "HowToStep", "position": 4, "name": "Calcule o cap rate", "text": "Cap rate = (Receita líquida anual ÷ Valor do imóvel) × 100. Em Niterói, cap rates de 5% a 9% ao ano são considerados bons para imóveis residenciais à beira-mar.", "url": "https://vivavendas.com.br/calculadora#caprate"}, {"@type": "HowToStep", "position": 5, "name": "Compare com a valorização", "text": "Some o cap rate à valorização histórica do bairro (Camboinhas: ~10,6% ao ano) para obter o retorno total do investimento. Esse número pode ser comparado a outros investimentos como Tesouro Direto ou fundos imobiliários.", "url": "https://vivavendas.com.br/calculadora#total"}]}</script>
+<noscript><style>.rv,.rv-l,.rv-r{opacity:1!important;transform:none!important;transition:none!important}.hero-title,.hero-sub,.hero-kicker{transform:none!important;transition:none!important}.t-clip{overflow:visible!important}#loader{display:none!important}body.loading{overflow:auto!important}</style></noscript>
+</head>
+<body class="loading">
+
+<div id="loader">
+  <div class="ldr-inner">
+    <div class="ldr-v-clip"><span class="ldr-v">V</span></div>
+    <div class="ldr-name-clip"><span class="ldr-name">VIVA VENDAS</span></div>
+    <div class="ldr-sep"><div class="ldr-sep-fill"></div></div>
+    <div class="ldr-city-clip"><span class="ldr-city">NITERÓI · VIVA VENDAS</span></div>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-pill" id="navPill">
+    <a href="index.html" class="nav-logo-c" title="Viva Vendas">V</a>
+    <div class="nav-div"></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="index.html#imoveis" class="nav-link">Imóveis</a></li>
+      <li><a href="investir.html" class="nav-link">Investir</a></li>
+      <li><a href="calculadora.html" class="nav-link active">Calculadora</a></li>
+      <li><a href="equipe.html" class="nav-link">Equipe</a></li>
+    
+      <li class="nav-drop">
+        <button class="nav-drop-btn">Bairros <span class="nav-drop-arr">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="bairros/camboinhas.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Camboinhas</a>
+          <a href="bairros/icarai.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Icaraí</a>
+          <a href="bairros/inga.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Ingá</a>
+          <a href="bairros/piratininga.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Piratininga</a>
+        </div>
+      </li>
+      <li class="nav-drop">
+        <button class="nav-drop-btn">Mais <span class="nav-drop-arr">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="comparativo.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Comparativo</a>
+          <a href="financiamento.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Financiamento</a>
+          <a href="fgts.html" class="nav-drop-item"><span class="nav-drop-dot"></span>FGTS</a>
+          <a href="aluguel-temporada.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Aluguel Temporada</a>
+          <div class="nav-drop-sep"></div>
+          <a href="sobre.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Sobre a Viva Vendas</a>
+          <a href="conviva.html" class="nav-drop-item"><span class="nav-drop-dot"></span>Construtora Parceira</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-div"></div>
+    <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Quero uma análise de investimento personalizada." target="_blank" class="nav-cta">Análise Personalizada</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div style="background:#0a0a0a;padding:9rem 7% 5rem;margin-top:0;border-bottom:1px solid #1a1a1a">
+  <div style="max-width:720px">
+    <div style="display:inline-block;padding:.35rem 1rem;background:rgba(232,80,30,.12);border:1px solid rgba(232,80,30,.25);border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#E8501E;margin-bottom:1.6rem">Ferramenta Exclusiva · Viva Vendas</div>
+    <h1 style="font-family:'Cinzel',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:700;color:#f0ebe4;line-height:1.1;margin-bottom:1.4rem">Calculadora de<br><span style="color:#E8501E">ROI Imobiliário</span></h1>
+    <p style="color:rgba(240,235,228,.5);font-size:1.05rem;font-weight:300;line-height:1.85;max-width:580px">Descubra em segundos quanto rende um apartamento em Niterói. Simule valorização, renda com aluguel, parcelas e compare com outros investimentos. 100% gratuito, sem cadastro.</p>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<section class="section" style="background:var(--white)">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1200px;margin:0 auto" id="calcGrid">
+
+    <!-- INPUTS -->
+    <div>
+      <!-- Mode toggle -->
+      <div style="display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:2rem">
+        <button class="mode-btn active" onclick="setMode('temporada',this)">🏖 Temporada</button>
+        <button class="mode-btn" onclick="setMode('longa',this)">🏠 Longa Permanência</button>
+        <button class="mode-btn" onclick="setMode('valorizacao',this)">📈 Só Valorização</button>
+      </div>
+
+      <div class="calc-section">
+        <h2 style="font-family:var(--font-heading);font-size:1.2rem;margin-bottom:1.5rem">Parâmetros do Investimento</h2>
+
+        <div class="range-group">
+          <label>Valor do Imóvel <span class="val" id="v-preco">R$ 480.000</span></label>
+          <input type="range" id="r-preco" min="350000" max="1200000" step="10000" value="480000" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>R$ 350mil</span><span>R$ 1,2M</span></div>
+        </div>
+
+        <div class="range-group">
+          <label>Entrada (%) <span class="val" id="v-entrada">20% = R$ 96.000</span></label>
+          <input type="range" id="r-entrada" min="5" max="80" step="5" value="20" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>5%</span><span>80%</span></div>
+        </div>
+
+        <div class="range-group">
+          <label>Prazo de Financiamento <span class="val" id="v-prazo">35 anos</span></label>
+          <input type="range" id="r-prazo" min="5" max="35" step="5" value="35" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>5 anos</span><span>35 anos</span></div>
+        </div>
+
+        <div class="range-group">
+          <label>Taxa de Juros (% a.a.) <span class="val" id="v-juros">9.0%</span></label>
+          <input type="range" id="r-juros" min="7" max="14" step="0.5" value="9" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>7%</span><span>14%</span></div>
+        </div>
+
+        <div id="inputs-temporada">
+          <div class="range-group">
+            <label>Taxa de Ocupação (%) <span class="val" id="v-ocup">78%</span></label>
+            <input type="range" id="r-ocup" min="30" max="100" step="5" value="78" oninput="calcUpdate()">
+            <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>30%</span><span>100%</span></div>
+          </div>
+          <div class="range-group">
+            <label>Diária Média (R$) <span class="val" id="v-diaria">R$ 220</span></label>
+            <input type="range" id="r-diaria" min="80" max="600" step="10" value="220" oninput="calcUpdate()">
+            <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>R$80</span><span>R$600</span></div>
+          </div>
+        </div>
+        <div id="inputs-longa" style="display:none">
+          <div class="range-group">
+            <label>Aluguel Mensal (R$) <span class="val" id="v-aluguel">R$ 2.500</span></label>
+            <input type="range" id="r-aluguel" min="800" max="8000" step="100" value="2500" oninput="calcUpdate()">
+          </div>
+        </div>
+
+        <div class="range-group">
+          <label>Valorização Anual (%) <span class="val" id="v-valoriz">10.6%</span></label>
+          <input type="range" id="r-valoriz" min="3" max="18" step="0.5" value="10.6" oninput="calcUpdate()">
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--gray);margin-top:0.3rem"><span>3%</span><span>18%</span></div>
+        </div>
+
+        <div class="range-group">
+          <label>Horizonte de Análise <span class="val" id="v-horizonte">5 anos</span></label>
+          <input type="range" id="r-horizonte" min="1" max="15" step="1" value="5" oninput="calcUpdate()">
+        </div>
+
+        <!-- FGTS toggle -->
+        <div style="display:flex;align-items:center;gap:0.8rem;padding:1rem;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);margin-top:0.5rem">
+          <input type="checkbox" id="cb-fgts" onchange="calcUpdate()" style="width:18px;height:18px;accent-color:var(--orange)">
+          <label for="cb-fgts" style="font-size:0.85rem;font-weight:500;text-transform:none;letter-spacing:0;margin:0;color:var(--black);cursor:pointer">Usar FGTS como parte da entrada</label>
+          <div style="margin-left:auto;font-size:0.78rem;color:var(--orange);font-weight:600" id="fgts-val" style="display:none">R$ 0</div>
+        </div>
+        <div id="fgts-group" style="display:none;margin-top:0.8rem">
+          <label style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray)">Saldo do FGTS (R$)</label>
+          <input type="number" id="i-fgts" value="30000" min="0" max="300000" step="1000" oninput="calcUpdate()" style="margin-top:0.4rem">
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div>
+      <div style="position:sticky;top:calc(var(--nav-h) + 1.5rem)">
+        <h2 style="font-family:var(--font-heading);font-size:1.2rem;margin-bottom:1.5rem">Resultado da Simulação</h2>
+
+        <div class="result-grid" style="margin-bottom:1.5rem">
+          <div class="result-card highlight">
+            <div class="result-label">ROI Total</div>
+            <div class="result-val" id="r-roi">--</div>
+            <div class="result-sub" id="r-roi-sub">em <span id="r-hz">5</span> anos</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Ganho Total (R$)</div>
+            <div class="result-val" id="r-ganho">--</div>
+            <div class="result-sub">valoriz. + renda</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Parcela Mensal</div>
+            <div class="result-val" id="r-parcela">--</div>
+            <div class="result-sub" id="r-parcela-sub">SAC – estimativa</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Renda Mensal Estimada</div>
+            <div class="result-val" id="r-renda">--</div>
+            <div class="result-sub" id="r-renda-sub">antes de custos</div>
+          </div>
+        </div>
+
+        <!-- Breakdown -->
+        <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem">
+          <h3 style="font-family:var(--font-heading);font-size:0.9rem;margin-bottom:1.2rem">Composição do Retorno</h3>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:0.3rem"><span>Valorização do imóvel</span><span style="font-weight:700;color:var(--orange)" id="b-valoriz">--</span></div>
+            <div class="chart-bar"><div class="chart-fill" id="bar-valoriz" style="width:0%"></div></div>
+          </div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:0.3rem"><span>Renda acumulada</span><span style="font-weight:700;color:var(--orange)" id="b-renda">--</span></div>
+            <div class="chart-bar"><div class="chart-fill" id="bar-renda" style="width:0%;background:linear-gradient(90deg,#0F766E,#14B8A6)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:0.3rem"><span>Valor final do imóvel</span><span style="font-weight:700" id="b-final">--</span></div>
+          </div>
+        </div>
+
+        <!-- vs Other investments -->
+        <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem">
+          <h3 style="font-family:var(--font-heading);font-size:0.9rem;margin-bottom:1.2rem">Comparativo com Outros Investimentos</h3>
+          <div class="comparison-row"><div class="comparison-label" style="color:var(--orange);font-weight:700">Imóvel Niterói 🏖</div><div class="comparison-bar"><div class="comparison-fill" id="cmp-imovel" style="width:0%;background:var(--orange)"></div></div><div class="comparison-val text-orange" id="cv-imovel">--</div></div>
+          <div class="comparison-row"><div class="comparison-label">Poupança 💸</div><div class="comparison-bar"><div class="comparison-fill" id="cmp-poupanca" style="width:0%;background:#94A3B8"></div></div><div class="comparison-val" id="cv-poupanca">--</div></div>
+          <div class="comparison-row"><div class="comparison-label">Tesouro IPCA+ 🏛</div><div class="comparison-bar"><div class="comparison-fill" id="cmp-tesouro" style="width:0%;background:#64748B"></div></div><div class="comparison-val" id="cv-tesouro">--</div></div>
+          <div class="comparison-row" style="margin-bottom:0"><div class="comparison-label">CDI (100%) 💰</div><div class="comparison-bar"><div class="comparison-fill" id="cmp-cdi" style="width:0%;background:#475569"></div></div><div class="comparison-val" id="cv-cdi">--</div></div>
+        </div>
+
+        <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Quero uma análise de investimento personalizada para Niterói." target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;text-align:center">💬 Receber Análise Personalizada</a>
+        <p style="font-size:0.72rem;color:var(--gray);text-align:center;margin-top:0.8rem">Simulação baseada em dados históricos. Não constitui recomendação de investimento.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AMORTIZATION TABLE -->
+  <div style="max-width:1200px;margin:3rem auto 0">
+    <h2 style="font-family:var(--font-heading);font-size:1.3rem;margin-bottom:0.5rem">Projeção Ano a Ano</h2>
+    <p style="font-size:0.85rem;color:var(--gray);margin-bottom:1.5rem">Evolução do patrimônio e da renda estimada ao longo do tempo.</p>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="projTable">
+        <thead><tr><th>Ano</th><th>Valor do Imóvel</th><th>Valorização Acum.</th><th>Renda Anual</th><th>Renda Acum.</th><th>Patrimônio Total</th><th>ROI Acum.</th></tr></thead>
+        <tbody id="projBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ CALCULADORA -->
+<section class="section section-gray">
+  <div class="section-header center">
+    <span class="eyebrow">Dúvidas sobre a calculadora</span>
+    <h2 class="h2">Perguntas Frequentes <span class="text-orange">sobre Investimento</span></h2>
+  </div>
+  <div style="max-width:800px;margin:0 auto">
+    <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Como calcular o retorno de um apartamento para aluguel por temporada em Niterói? <span class="faq-icon">+</span></button><div class="faq-a">Multiplique a diária média pela taxa de ocupação mensal (30 dias). Por exemplo: R$ 220/dia × 78% × 30 dias = R$ 5.148 brutos/mês. Deduzindo taxas de plataforma (15%) e condomínio, o líquido médio gira em torno de R$ 3.800–4.500/mês para studios em Camboinhas.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Quanto valoriza um imóvel na planta em Niterói até a entrega? <span class="faq-icon">+</span></button><div class="faq-a">Historicamente, apartamentos em Niterói valorizaram entre 15% e 25% entre o lançamento e a entrega das chaves (2–3 anos de obra). Em Camboinhas, com escassez de terrenos, esse potencial pode ser ainda maior.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">Vale mais a pena quitar ou financiar o imóvel? <span class="faq-icon">+</span></button><div class="faq-a">Depende do custo do dinheiro. Se sua taxa de financiamento (ex: 9% a.a.) for inferior ao retorno esperado do imóvel (valorização + renda = 15–20% a.a. bruto), faz sentido financiar e usar o capital restante em outros ativos. Nossa equipe faz essa análise gratuitamente.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this.parentElement)">O FGTS pode ser usado em imóveis Conviva? <span class="faq-icon">+</span></button><div class="faq-a">Sim. Os empreendimentos Conviva são enquadrados no SBPE e aceitam uso do FGTS como entrada ou amortização — desde que o comprador atenda aos requisitos (ter 3 anos de carteira assinada, não ter outro imóvel no município, etc.). Nossa equipe verifica sua elegibilidade sem custo.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-dark" style="text-align:center">
+  <h2 class="h2 reveal" style="color:#fff;margin-bottom:1rem">Quer uma análise <span class="text-orange">personalizada?</span></h2>
+  <p class="reveal d1" style="color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 2rem;font-weight:300">Nossos especialistas calculam o ROI específico para o imóvel e perfil de uso que você tem em mente — de graça, sem compromisso.</p>
+  <div class="reveal d2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Quero uma análise de ROI personalizada." target="_blank" class="btn btn-primary btn-lg">💬 Análise pelo WhatsApp</a>
+    <a href="investir.html" class="btn btn-outline-white btn-lg">📊 Guia do Investidor</a>
+  </div>
+</section>
+
+<div class="vv-marquee-wrap">
+  <div class="vv-marquee" data-speed="55">
+    <div class="vv-marquee-track"><span>CAMBOINHAS · ICARAÍ · INGÁ · PIRATININGA · NITERÓI · RJ · <em>VIVA VENDAS</em> · APARTAMENTOS À VENDA · INVESTIMENTO IMOBILIÁRIO · </span></div>
+  </div>
+</div>
+
+
+<a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Vim da calculadora e quero uma análise personalizada!" target="_blank" class="wa-float"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script>
+// Nav pill scroll behavior
+(function(){
+  var pill=document.getElementById('navPill');
+  window.addEventListener('scroll',function(){pill.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+})();
+
+const obs=new IntersectionObserver(e=>e.forEach(el=>el.isIntersecting&&el.target.classList.add('visible')),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleFaq(item){const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');}
+
+let mode = 'temporada';
+function setMode(m, btn) {
+  mode = m;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('inputs-temporada').style.display = m === 'temporada' ? '' : 'none';
+  document.getElementById('inputs-longa').style.display = m === 'longa' ? '' : 'none';
+  calcUpdate();
+}
+
+document.getElementById('cb-fgts').addEventListener('change', function() {
+  document.getElementById('fgts-group').style.display = this.checked ? '' : 'none';
+  calcUpdate();
+});
+
+function fmt(n, digits=0) {
+  if(Math.abs(n) >= 1000000) return 'R$ ' + (n/1000000).toFixed(1) + 'M';
+  if(Math.abs(n) >= 1000) return 'R$ ' + (n/1000).toFixed(0) + 'K';
+  return 'R$ ' + n.toFixed(digits).replace('.', ',');
+}
+function pct(n) { return n.toFixed(1).replace('.',',') + '%'; }
+
+function calcUpdate() {
+  const preco = +document.getElementById('r-preco').value;
+  const entPct = +document.getElementById('r-entrada').value / 100;
+  const prazo = +document.getElementById('r-prazo').value * 12; // meses
+  const jurosAA = +document.getElementById('r-juros').value / 100;
+  const jurosMes = Math.pow(1 + jurosAA, 1/12) - 1;
+  const valorizAA = +document.getElementById('r-valoriz').value / 100;
+  const horizonte = +document.getElementById('r-horizonte').value;
+  const ocup = +document.getElementById('r-ocup').value / 100;
+  const diaria = +document.getElementById('r-diaria').value;
+  const aluguelMensal = +document.getElementById('r-aluguel').value;
+  const useFgts = document.getElementById('cb-fgts').checked;
+  const fgts = useFgts ? (+document.getElementById('i-fgts').value || 0) : 0;
+
+  // Update displays
+  document.getElementById('v-preco').textContent = fmt(preco);
+  const entVal = preco * entPct - fgts;
+  document.getElementById('v-entrada').textContent = pct(entPct*100) + ' = ' + fmt(Math.max(0, entVal));
+  if(useFgts) document.getElementById('fgts-val').textContent = '– FGTS: ' + fmt(fgts);
+  document.getElementById('v-prazo').textContent = (prazo/12) + ' anos';
+  document.getElementById('v-juros').textContent = pct(+document.getElementById('r-juros').value);
+  document.getElementById('v-ocup').textContent = pct(+document.getElementById('r-ocup').value);
+  document.getElementById('v-diaria').textContent = 'R$ ' + diaria;
+  document.getElementById('v-valoriz').textContent = pct(+document.getElementById('r-valoriz').value);
+  document.getElementById('v-horizonte').textContent = horizonte + (horizonte===1?' ano':' anos');
+  document.getElementById('v-aluguel').textContent = 'R$ ' + aluguelMensal.toLocaleString('pt-BR');
+  document.getElementById('r-hz').textContent = horizonte;
+
+  // Renda mensal
+  let rendaMensal = 0;
+  if(mode === 'temporada') rendaMensal = diaria * 30 * ocup * 0.82; // 18% custos
+  else if(mode === 'longa') rendaMensal = aluguelMensal * 0.88; // 12% custos
+  else rendaMensal = 0;
+
+  // Parcela (Price – estimativa simplificada)
+  const financiado = preco - preco * entPct;
+  let parcela = 0;
+  if(prazo > 0 && jurosMes > 0) parcela = financiado * jurosMes / (1 - Math.pow(1+jurosMes, -prazo));
+
+  // Valorização
+  const valorFinal = preco * Math.pow(1 + valorizAA, horizonte);
+  const ganhoValorizacao = valorFinal - preco;
+
+  // Renda acumulada
+  const rendaAnual = rendaMensal * 12;
+  const rendaAcum = rendaAnual * horizonte;
+
+  const ganhoTotal = ganhoValorizacao + rendaAcum;
+  const investInicial = preco * entPct - fgts;
+  const roi = ganhoTotal / Math.max(investInicial, 1) * 100;
+
+  // Update results
+  document.getElementById('r-roi').textContent = '+' + roi.toFixed(0) + '%';
+  document.getElementById('r-ganho').textContent = fmt(ganhoTotal);
+  document.getElementById('r-parcela').textContent = parcela > 0 ? fmt(parcela) : '—';
+  document.getElementById('r-renda').textContent = rendaMensal > 0 ? fmt(rendaMensal) : '—';
+  document.getElementById('r-renda-sub').textContent = mode === 'temporada' ? 'Temporada · ' + pct(+document.getElementById('r-ocup').value) + ' ocup.' : mode === 'longa' ? 'Aluguel longa perm.' : 'Sem renda (valorização)';
+
+  // Breakdown
+  const pValorImovel = ganhoTotal > 0 ? ganhoValorizacao / ganhoTotal * 100 : 0;
+  const pRenda = ganhoTotal > 0 ? rendaAcum / ganhoTotal * 100 : 0;
+  document.getElementById('b-valoriz').textContent = fmt(ganhoValorizacao);
+  document.getElementById('b-renda').textContent = rendaAcum > 0 ? fmt(rendaAcum) : '—';
+  document.getElementById('b-final').textContent = fmt(valorFinal);
+  document.getElementById('bar-valoriz').style.width = Math.min(pValorImovel, 100) + '%';
+  document.getElementById('bar-renda').style.width = Math.min(pRenda, 100) + '%';
+
+  // Comparison
+  const roiImovel = roi;
+  const roiPoupanca = (Math.pow(1.0675, horizonte) - 1) * 100;
+  const roiTesouro  = (Math.pow(1.10,   horizonte) - 1) * 100;
+  const roiCDI      = (Math.pow(1.105,  horizonte) - 1) * 100;
+  const maxROI = Math.max(roiImovel, roiPoupanca, roiTesouro, roiCDI, 1);
+  document.getElementById('cmp-imovel').style.width   = (roiImovel/maxROI*100)   + '%';
+  document.getElementById('cmp-poupanca').style.width = (roiPoupanca/maxROI*100) + '%';
+  document.getElementById('cmp-tesouro').style.width  = (roiTesouro/maxROI*100)  + '%';
+  document.getElementById('cmp-cdi').style.width      = (roiCDI/maxROI*100)      + '%';
+  document.getElementById('cv-imovel').textContent   = '+' + roi.toFixed(0) + '%';
+  document.getElementById('cv-poupanca').textContent = '+' + roiPoupanca.toFixed(0) + '%';
+  document.getElementById('cv-tesouro').textContent  = '+' + roiTesouro.toFixed(0) + '%';
+  document.getElementById('cv-cdi').textContent      = '+' + roiCDI.toFixed(0) + '%';
+
+  // Projection table
+  var tbody = document.getElementById('projBody');
+  if(tbody){
+    tbody.innerHTML = '';
+    var cumRenda = 0;
+    for(var y = 1; y <= horizonte; y++){
+      var vf = preco * Math.pow(1 + valorizAA, y);
+      var rAnual = rendaMensal * 12;
+      cumRenda += rAnual;
+      var roiY = ((vf - preco + cumRenda) / Math.max(investInicial,1) * 100);
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>'+y+'</td><td>'+fmt(vf)+'</td><td>'+fmt(vf-preco)+'</td><td>'+(rendaMensal>0?fmt(rAnual):'—')+'</td><td>'+(cumRenda>0?fmt(cumRenda):'—')+'</td><td>'+fmt(vf+(cumRenda))+'</td><td>+'+roiY.toFixed(0)+'%</td>';
+      tbody.appendChild(tr);
+    }
+  }
+}
+
+// FAQ accordion
+function toggleFaq(el){
+  var wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if(!wasOpen) el.classList.add('open');
+}
+
+// Loader dismiss
+(function(){
+  var loader = document.getElementById('loader');
+  var body = document.body;
+  setTimeout(function(){
+    loader.classList.add('exit');
+    setTimeout(function(){
+      loader.style.display = 'none';
+      body.classList.remove('loading');
+    }, 820);
+  }, 1400);
+})();
+
+// Nav scroll
+(function(){
+  var pill = document.getElementById('navPill');
+  if(pill) window.addEventListener('scroll', function(){ pill.classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
+})();
+
+// Reveal on scroll
+var revObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal,.reveal-r').forEach(function(el){ revObs.observe(el); });
+
+// Initial calculation
+calcUpdate();
+
+document.querySelectorAll('.vv-marquee').forEach(function(m){var track=m.querySelector('.vv-marquee-track');track.innerHTML=track.innerHTML+track.innerHTML;var speed=parseFloat(m.dataset.speed)||40;var x=0;(function tick(){x-=speed/60;var hw=track.scrollWidth/2;if(Math.abs(x)>=hw)x=0;track.style.transform='translateX('+x+'px)';requestAnimationFrame(tick)})()});
+</script>
+
+<footer class="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-brand"><div class="ft-logo">V</div><div class="ft-name">Viva <span>Vendas</span></div></div>
+      <p class="ft-desc">Consultoria imobiliária exclusiva em empreendimentos Conviva em Niterói. Expertise local, atendimento personalizado e transparência total.</p>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/vivavendas.niteroi/" target="_blank">ig</a>
+        <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank">wa</a>
+        <a href="https://www.youtube.com/@convivaengenharia" target="_blank">yt</a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Empreendimentos</h4><ul>
+      <li><a href="imoveis/brise.html">Conviva Brise</a></li>
+      <li><a href="imoveis/life-inga.html">Life Ingá</a></li>
+      <li><a href="imoveis/life-camboinhas.html">Life Camboinhas</a></li>
+      <li><a href="imoveis/piratininga.html">Piratininga</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Bairros</h4><ul>
+      <li><a href="bairros/camboinhas.html">Camboinhas</a></li>
+      <li><a href="bairros/icarai.html">Icaraí</a></li>
+      <li><a href="bairros/inga.html">Ingá</a></li>
+      <li><a href="bairros/piratininga.html">Piratininga</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Recursos</h4><ul>
+      <li><a href="calculadora.html">Calculadora ROI</a></li>
+      <li><a href="investir.html">Guia do Investidor</a></li>
+      <li><a href="financiamento.html">Financiamento</a></li>
+      <li><a href="fgts.html">FGTS</a></li>
+      <li><a href="aluguel-temporada.html">Aluguel Temporada</a></li>
+      <li><a href="faq/index.html">Perguntas Frequentes</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Guias & Blog</h4><ul>
+      <li><a href="blog/preco-m2-niteroi.html">Preço do m² em Niterói</a></li>
+      <li><a href="blog/camboinhas-vs-piratininga.html">Camboinhas vs Piratininga</a></li>
+      <li><a href="blog/niteroi-rio-comparativo-investimento.html">Niterói vs Rio — Investimento</a></li>
+      <li><a href="blog/retorno-aluguel-temporada-niteroi.html">Retorno Aluguel Temporada</a></li>
+      <li><a href="blog/financiamento-apartamento-planta.html">Financiamento na Planta</a></li>
+      <li><a href="blog/conviva-engenharia-historico.html">Conviva — Histórico</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Contato</h4><ul>
+      <li><a href="tel:+552134921790">(21) 3492-1790</a></li>
+      <li><a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank">(21) 96703-1691</a></li>
+      <li><a href="#">contato@vivavendas.com.br</a></li>
+      <li><a href="sobre.html">Sobre a Viva Vendas</a></li>
+      <li><a href="conviva.html">Construtora Parceira</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 <strong>Viva Vendas</strong> · Todos os direitos reservados</span>
+    <span>Preços ilustrativos · <a href="conviva.html">Construtora Parceira →</a></span>
+  </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Vim da calculadora e quero uma análise personalizada!" target="_blank" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:500;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Core pages -->
+  <url><loc>https://vivavendas.com.br/</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vivavendas.com.br/sobre</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/equipe</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Imóveis -->
+  <url><loc>https://vivavendas.com.br/imoveis/brise</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vivavendas.com.br/imoveis/life-inga</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vivavendas.com.br/imoveis/camboinhas</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vivavendas.com.br/imoveis/icarai</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vivavendas.com.br/imoveis/piratininga</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vivavendas.com.br/imoveis/life-camboinhas</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Bairros -->
+  <url><loc>https://vivavendas.com.br/bairros/camboinhas</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/bairros/inga</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/bairros/icarai</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/bairros/piratininga</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Ferramentas -->
+  <url><loc>https://vivavendas.com.br/calculadora</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/comparativo</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/tabela-precos</loc><lastmod>2025-06-09</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/investir</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Guias / Conteúdo -->
+  <url><loc>https://vivavendas.com.br/fgts</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vivavendas.com.br/financiamento</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vivavendas.com.br/aluguel-temporada</loc><lastmod>2025-06-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- FAQ Hub -->
+  <url><loc>https://vivavendas.com.br/faq/</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Blog / Conteúdo AEO -->
+  <url><loc>https://vivavendas.com.br/blog/preco-m2-niteroi</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/blog/camboinhas-vs-piratininga</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vivavendas.com.br/blog/retorno-aluguel-temporada-niteroi</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vivavendas.com.br/blog/conviva-engenharia-historico</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vivavendas.com.br/blog/financiamento-apartamento-planta</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vivavendas.com.br/blog/niteroi-rio-comparativo-investimento</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

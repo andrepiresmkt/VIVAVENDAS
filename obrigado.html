@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrigado – Recebemos seu contato | Viva Vendas</title>
+  <meta name="robots" content="noindex,nofollow">
+  <!-- Meta Pixel + GA4 conversion fires here -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0a0a;--surface:#111;--text:#f0ebe4;--muted:#888;--stroke:#1f1f1f;--orange:#E8501E;--orange-l:#FF6B35;--font-d:'Cinzel',serif;--font-b:'Inter',sans-serif;--ease-expo:cubic-bezier(0.16,1,0.3,1);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:var(--font-b);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;overflow:hidden}
+    .bg-glow{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(232,80,30,.12) 0%,transparent 70%);pointer-events:none;animation:pulse 4s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+    .v-ring{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#E8501E);display:flex;align-items:center;justify-content:center;margin:0 auto 2.5rem;box-shadow:0 0 60px rgba(232,80,30,.4);animation:ringIn .8s var(--ease-expo) both}
+    @keyframes ringIn{from{opacity:0;transform:scale(.6) rotate(-20deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+    .v-letter{font-family:var(--font-d);font-size:3.5rem;font-weight:700;color:#fff;line-height:1}
+    .eyebrow{font-size:.62rem;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;animation:fadeUp .7s .3s var(--ease-expo) both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    h1{font-family:var(--font-d);font-size:clamp(2.5rem,8vw,6rem);font-weight:700;color:var(--text);letter-spacing:-.02em;line-height:.9;margin-bottom:1.2rem;animation:fadeUp .9s .4s var(--ease-expo) both}
+    h1 em{color:var(--orange);font-style:italic;font-weight:400}
+    .subtitle{font-family:var(--font-d);font-style:italic;font-size:clamp(1rem,3vw,1.8rem);color:rgba(240,235,228,.4);margin-bottom:2.5rem;animation:fadeUp .8s .55s var(--ease-expo) both}
+    .body-txt{font-size:.9rem;font-weight:300;color:rgba(240,235,228,.45);max-width:420px;line-height:1.85;margin:0 auto 3rem;animation:fadeUp .8s .65s var(--ease-expo) both}
+    .acts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .75s var(--ease-expo) both}
+    .btn-p{display:inline-flex;align-items:center;gap:.5rem;padding:1.1rem 2.5rem;background:var(--orange);color:#fff;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border-radius:50px;text-decoration:none;transition:all .3s}.btn-p:hover{background:var(--orange-l);transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,80,30,.45)}
+    .btn-o{display:inline-flex;align-items:center;padding:1.1rem 2.5rem;border:1px solid var(--stroke);color:var(--text);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;border-radius:50px;text-decoration:none;transition:all .3s}.btn-o:hover{border-color:var(--orange);color:var(--orange)}
+    .next-steps{margin-top:5rem;animation:fadeUp .8s .9s var(--ease-expo) both;width:100%;max-width:620px}
+    .ns-title{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+    .ns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    .ns-card{background:var(--surface);border:1px solid var(--stroke);border-radius:16px;padding:1.4rem;text-align:left;text-decoration:none;transition:all .3s}.ns-card:hover{border-color:rgba(232,80,30,.3);transform:translateY(-3px)}
+    .ns-icon{font-size:1.3rem;margin-bottom:.6rem}.ns-name{font-family:var(--font-d);font-size:.78rem;font-weight:600;color:var(--text);letter-spacing:.05em;margin-bottom:.3rem}.ns-desc{font-size:.72rem;color:var(--muted);line-height:1.5}
+    @media(max-width:600px){.ns-grid{grid-template-columns:1fr}.acts{flex-direction:column;align-items:center}}
+    .wa{position:fixed;bottom:2rem;right:2rem;z-index:998;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.45);animation:wap 3s infinite;transition:transform .3s}.wa:hover{transform:scale(1.1)}.wa svg{width:26px;height:26px;fill:white}
+    @keyframes wap{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.45)}50%{box-shadow:0 6px 38px rgba(37,211,102,.7),0 0 0 7px rgba(37,211,102,.1)}}
+  </style>
+  <!-- GA4 conversion event — replace G-XXXXXXXX with real ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXX');
+    gtag('event', 'conversion', {'send_to': 'G-XXXXXXXX/lead_complete'});
+  </script>
+  <!-- Meta Pixel — replace XXXXXXXXXXXXXXXXXX with real Pixel ID -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead');
+  </script>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<noscript><style>.rv,.rv-l,.rv-r{opacity:1!important;transform:none!important;transition:none!important}.hero-title,.hero-sub,.hero-kicker{transform:none!important;transition:none!important}.t-clip{overflow:visible!important}#loader{display:none!important}body.loading{overflow:auto!important}</style></noscript>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="v-ring"><span class="v-letter">✓</span></div>
+<span class="eyebrow">Viva Vendas · Niterói</span>
+<h1>OBRIGADO<br><em>pelo contato</em></h1>
+<p class="subtitle">Recebemos sua mensagem</p>
+<p class="body-txt">Um de nossos consultores vai entrar em contato em até 2 horas úteis. Se preferir, fale diretamente pelo WhatsApp agora mesmo.</p>
+<div class="acts">
+  <a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691&text=Olá, acabei de preencher o formulário e gostaria de falar sobre os apartamentos Conviva em Niterói." target="_blank" class="btn-p">💬 WhatsApp agora</a>
+  <a href="index.html" class="btn-o">← Voltar ao site</a>
+</div>
+
+<div class="next-steps">
+  <div class="ns-title">Enquanto isso, explore</div>
+  <div class="ns-grid">
+    <a href="calculadora.html" class="ns-card">
+      <div class="ns-icon">📊</div>
+      <div class="ns-name">Calculadora ROI</div>
+      <div class="ns-desc">Simule o retorno do seu investimento</div>
+    </a>
+    <a href="comparativo.html" class="ns-card">
+      <div class="ns-icon">⚖️</div>
+      <div class="ns-name">Comparativo</div>
+      <div class="ns-desc">Compare os empreendimentos lado a lado</div>
+    </a>
+    <a href="financiamento.html" class="ns-card">
+      <div class="ns-icon">🏦</div>
+      <div class="ns-name">Financiamento</div>
+      <div class="ns-desc">Simule parcelas e compare bancos</div>
+    </a>
+  </div>
+</div>
+
+<a href="https://api.whatsapp.com/send?phone=55(21) 96703-1691" target="_blank" class="wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+</body>
+</html>
