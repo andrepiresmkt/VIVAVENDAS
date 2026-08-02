@@ -261,10 +261,10 @@
     #heroImpact{
       position:absolute;inset:0;z-index:6;
       display:flex;flex-direction:column;
-      align-items:center;justify-content:flex-end;
+      align-items:center;justify-content:center;
       text-align:center;
       opacity:0;pointer-events:none;
-      padding:0 1rem 30% 1rem;
+      padding:20% 1rem 0 1rem;
     }
     .hi-eyebrow{
       font-family:'Inter',sans-serif;
@@ -769,8 +769,8 @@
       overflow:hidden;will-change:opacity;
     }
     #heroPoster img{
-      width:100%;height:100%;object-fit:contain;
-      object-position:center center;
+      width:100%;height:100%;object-fit:cover;
+      object-position:center 50%;
       transform:scale(1.06);
       animation:posterKB 9s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
     }
