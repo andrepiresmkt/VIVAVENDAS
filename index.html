@@ -227,7 +227,7 @@
       position:absolute;inset:0;
       width:100%;height:100%;display:block;
       object-fit:cover;
-      filter:brightness(1.16) saturate(.62) contrast(.94);
+      filter:brightness(1.05) saturate(1) contrast(.97);
     }
     /* Layer 2: SCRIM CLARO.
        Antes era um gradiente PRETO — herança do tema escuro, feito para texto
@@ -291,17 +291,19 @@
       position:absolute;left:0;top:0;bottom:0;width:3px;z-index:4;opacity:.5;
       background:linear-gradient(to bottom,var(--orange),var(--orange-l),var(--orange));
     }
-    /* ── Two-column hero layout ── */
+    /* ── Centered hero layout ── */
     .hero-inner{
       position:absolute;inset:0;z-index:5;
-      display:flex;align-items:center;
+      display:flex;align-items:center;justify-content:center;
       padding:104px 7% 0;
     }
     .hero-left{
-      width:50%;max-width:600px;
+      width:100%;max-width:700px;
       padding:2vh 0 12vh;
+      text-align:center;
+      display:flex;flex-direction:column;align-items:center;
     }
-    .hero-right{flex:1;min-height:1px}
+    .hero-right{display:none}
     .hero-badge{
       display:inline-flex;align-items:center;gap:.5rem;
       background:rgba(232,80,30,.08);border:1px solid rgba(232,80,30,.2);
@@ -323,9 +325,9 @@
       transition:transform 1.4s var(--ease-expo);
       will-change:transform;
     }
-    .h1-line-1{font-size:clamp(2.125rem,3.9vw,3.875rem);transition-delay:.35s;color:var(--ink);font-weight:600}
-    .h1-line-2{font-size:clamp(1.0625rem,1.75vw,1.75rem);font-style:italic;font-weight:400;color:var(--orange);transition-delay:.5s}
-    .h1-line-3{font-size:clamp(2.125rem,3.9vw,3.875rem);transition-delay:.42s;color:var(--ink);font-weight:600}
+    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:700}
+    .h1-line-2{font-size:clamp(1.2rem,2.2vw,2.2rem);font-style:italic;font-weight:400;color:var(--orange);transition-delay:.5s}
+    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:700}
     .hero.started .h1-line{transform:translateY(0)}
     .hero-desc{
       font-size:var(--t-body);font-weight:400;color:var(--ink-2);
@@ -771,7 +773,7 @@
     #heroPoster img{
       width:100%;height:100%;object-fit:cover;
       object-position:center 50%;
-      filter:brightness(1.16) saturate(.62) contrast(.94);
+      filter:brightness(1.05) saturate(1) contrast(.97);
     }
     /* Warm vignette inside the poster itself */
     #heroPoster::after{
@@ -957,35 +959,6 @@
 
       </div><!-- /hero-headlines -->
 
-      <div class="hero-features">
-        <div class="hf-item">
-          <div class="hf-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <div class="hf-title">A 150m da Praia</div>
-            <div class="hf-text">Camboinhas, Ingá, Piratininga e Icaraí — os endereços mais cobiçados de Niterói.</div>
-          </div>
-        </div>
-        <div class="hf-item">
-          <div class="hf-icon">
-            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <div>
-            <div class="hf-title">10,6% de Valorização/ano</div>
-            <div class="hf-text">Maior crescimento imobiliário do estado, comprovado pelo índice FIPE/ZAP.</div>
-          </div>
-        </div>
-        <div class="hf-item">
-          <div class="hf-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-          </div>
-          <div>
-            <div class="hf-title">Assessoria Completa</div>
-            <div class="hf-text">Da simulação ao contrato, nossa equipe cuida de cada detalhe por você.</div>
-          </div>
-        </div>
-      </div>
 
       <div class="hero-acts">
         <a href="#imoveis" class="btn-s">Ver Imóveis Disponíveis</a>
