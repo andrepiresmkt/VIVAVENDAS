@@ -1439,7 +1439,8 @@
         .fromTo('.hl-scene-2',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},3.3)
         .to('.hl-scene-2',{autoAlpha:0,y:-70,duration:1},7)
         .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
-        // Exit: content rises and fades, curtain closes to blank
+        // Exit: content rises and fades, overlay zera em 0.3s, curtain closes
+        .to('.hero-ov',{opacity:0,duration:0.3},11.2)
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.2)
         .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},11.3)
         .to('#heroCurtain',{opacity:1,duration:1.5,ease:'power2.in'},11.5)
