@@ -227,7 +227,7 @@
       position:absolute;inset:0;
       width:100%;height:100%;display:block;
       object-fit:cover;
-      filter:brightness(1.05) saturate(1) contrast(.97);
+      filter:saturate(1.15) contrast(1.02);
     }
     /* Layer 2: SCRIM CLARO.
        Antes era um gradiente PRETO — herança do tema escuro, feito para texto
@@ -319,15 +319,15 @@
     /* Sem text-shadow: as duas sombras aqui existiam para destacar texto BRANCO
        sobre foto escura. Sobre o scrim claro elas só sujam as bordas da letra. */
     .h1-line{
-      display:block;font-family:var(--font-d);
-      font-weight:600;letter-spacing:-.022em;line-height:1.04;color:var(--ink);
+      display:block;font-family:var(--font-b);
+      font-weight:300;letter-spacing:-.03em;line-height:1.04;color:var(--ink);
       transform:translateY(108%);
       transition:transform 1.4s var(--ease-expo);
       will-change:transform;
     }
-    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:700}
-    .h1-line-2{font-size:clamp(1.2rem,2.2vw,2.2rem);font-style:italic;font-weight:400;color:var(--orange);transition-delay:.5s}
-    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:700}
+    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:300}
+    .h1-line-2{font-size:clamp(1.2rem,2.2vw,2.2rem);font-style:italic;font-weight:300;color:var(--orange);transition-delay:.5s}
+    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:300}
     .hero.started .h1-line{transform:translateY(0)}
     .hero-desc{
       font-size:var(--t-body);font-weight:400;color:var(--ink-2);
@@ -773,7 +773,7 @@
     #heroPoster img{
       width:100%;height:100%;object-fit:cover;
       object-position:center 50%;
-      filter:brightness(1.05) saturate(1) contrast(.97);
+      filter:saturate(1.15) contrast(1.02);
     }
     /* Warm vignette inside the poster itself */
     #heroPoster::after{
@@ -1412,7 +1412,7 @@
         .to('.hl-scene-2',{autoAlpha:0,y:-70,duration:1},7)
         .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
         // Overlay some cedo para revelar logo do vídeo em cores totais
-        .to('.hero-ov',{opacity:0,duration:0.3},8.0)
+        .to('.hero-ov',{opacity:0,duration:0.3},11.0)
         // Exit: content rises and fades, curtain closes
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.2)
         .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},11.3)
