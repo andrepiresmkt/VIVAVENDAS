@@ -302,14 +302,6 @@
       padding:2vh 0 12vh;
     }
     .hero-right{flex:1;min-height:1px}
-    .hero-logo-img{
-      display:block;width:clamp(160px,22vw,280px);height:auto;
-      opacity:0;transform:translateY(16px);
-      transition:opacity 900ms var(--ease-expo),transform 900ms var(--ease-expo);
-      transition-delay:.2s;
-      margin-bottom:2rem;
-    }
-    .hero.started .hero-logo-img{opacity:1;transform:translateY(0)}
     .hero-badge{
       display:inline-flex;align-items:center;gap:.5rem;
       background:rgba(232,80,30,.08);border:1px solid rgba(232,80,30,.2);
@@ -874,7 +866,7 @@
 <!-- ──── NAV ──── -->
 <nav class="nav">
   <div class="nav-pill" id="navPill">
-    <a href="index.html" class="nav-logo-c" style="text-decoration:none;background:transparent;display:flex;align-items:center;justify-content:center;padding:0"><img src="img/logo-full.png" alt="Viva Vendas" style="height:34px;width:auto;border-radius:50%;object-fit:contain"></a>
+    <a href="index.html" class="nav-logo-c" style="text-decoration:none;background:transparent;display:flex;align-items:center;justify-content:center;padding:0"><img src="img/logo-full.png" alt="Viva Vendas" style="height:46px;width:auto;border-radius:50%;object-fit:contain"></a>
     <div class="nav-div"></div>
     <ul class="nav-links">
       <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -929,7 +921,6 @@
 
   <div class="hero-inner">
     <div class="hero-left">
-      <img src="img/logo-viva.png" alt="Viva Vendas" class="hero-logo-img" width="900" height="414">
 
       <!-- Scene container: 3 headlines rotate on scroll -->
       <div class="hero-headlines">
@@ -1447,8 +1438,9 @@
         .fromTo('.hl-scene-2',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},3.3)
         .to('.hl-scene-2',{autoAlpha:0,y:-70,duration:1},7)
         .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
-        // Exit: content rises and fades, overlay zera em 0.3s, curtain closes
-        .to('.hero-ov',{opacity:0,duration:0.3},11.2)
+        // Overlay some cedo para revelar logo do vídeo em cores totais
+        .to('.hero-ov',{opacity:0,duration:0.3},8.0)
+        // Exit: content rises and fades, curtain closes
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.2)
         .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},11.3)
         .to('#heroCurtain',{opacity:1,duration:1.5,ease:'power2.in'},11.5)
