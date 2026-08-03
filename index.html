@@ -1413,12 +1413,17 @@
         .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
         // Overlay some cedo para revelar logo do vídeo em cores totais
         .to('.hero-ov',{opacity:0,duration:0.3},11.0)
-        // Exit: content rises and fades, curtain closes
-        .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.2)
-        .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},11.3)
-        .to('#heroCurtain',{opacity:1,duration:1.5,ease:'power2.in'},11.5)
-        // Impact text: bairros appear at the very bottom
-        .fromTo('#heroImpact',{opacity:0,y:12},{opacity:1,y:0,duration:1.4,ease:'power2.out'},12.2);
+        // Exit: content rises and fades — starts together with the reveal so the
+        // headline is gone (not ghosting) well before the curtain finishes closing
+        .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.0)
+        .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},11.0)
+        // Curtain only starts once the color reveal window has passed, and fully
+        // closes (opacity 1) BEFORE the bairros text starts fading in — previously
+        // these overlapped, producing illegible layered text mid-scroll
+        .to('#heroCurtain',{opacity:1,duration:1.2,ease:'power2.in'},11.3)
+        // Impact text: bairros appear at the very bottom, only after the curtain
+        // is fully opaque so it reads on a clean background
+        .fromTo('#heroImpact',{opacity:0,y:12},{opacity:1,y:0,duration:1.2,ease:'power2.out'},12.5);
 
       // Pin hero, scrub timeline + video in sync
       // VIDEO_OFFSET: first 15% of scroll is reserved for poster fade —
