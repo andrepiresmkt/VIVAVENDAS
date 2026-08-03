@@ -257,10 +257,13 @@
       background:rgba(248,246,241,1);
       opacity:0;pointer-events:none;
     }
-    /* Crisp logo overlay — sits between the fade and the curtain so the closing
-       curtain still covers it; see comment near its markup for why it exists. */
+    /* Crisp logo overlay — z-index 5 puts it ABOVE the curtain (4), so once the
+       curtain finishes closing to solid cream the logo keeps reading on top of
+       it (rather than being painted over) for as long as the timeline holds it
+       visible. Still below #heroImpact (6), which sits lower on the screen and
+       doesn't overlap it. See comment near its markup for why it exists. */
     #heroLogoReveal{
-      position:absolute;inset:0;z-index:3;
+      position:absolute;inset:0;z-index:5;
       display:flex;align-items:center;justify-content:center;
       opacity:0;pointer-events:none;
     }
