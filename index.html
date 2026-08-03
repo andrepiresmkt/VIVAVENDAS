@@ -10,7 +10,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quais bairros de Niterói têm apartamentos à venda próximos à praia?","acceptedAnswer":{"@type":"Answer","text":"Camboinhas, Ingá, Piratininga e Icaraí têm empreendimentos Conviva a menos de 650m do mar."}},{"@type":"Question","name":"Qual o preço de um studio em Niterói perto da praia?","acceptedAnswer":{"@type":"Answer","text":"Studios em Niterói próximos à praia partem de R$ 420.000 nos empreendimentos Conviva."}},{"@type":"Question","name":"Vale a pena comprar apartamento na planta em Niterói?","acceptedAnswer":{"@type":"Answer","text":"Sim. Imóveis em Niterói valorizaram 10,63% ao ano. Comprar na planta garante o melhor preço."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       /* ── SUPERFÍCIES (tema claro) ── */
@@ -329,20 +329,20 @@
     .t-clip{overflow:hidden}
     /* Sem text-shadow: as duas sombras aqui existiam para destacar texto BRANCO
        sobre foto escura. Sobre o scrim claro elas só sujam as bordas da letra. */
-    /* Headline now uses the same Cinzel serif as every other display heading on
-       the site (props-title, invest-title, fc-title, hi-headline all do) —
-       previously this was the only heading set in thin Inter, which read as
-       flimsy/inconsistent next to the rest of the page's typographic voice. */
+    /* Headline now uses Poppins ExtraBold — a rounded geometric sans that
+       matches the letterforms of the actual logo (img/logo-viva.png), instead
+       of Cinzel (a serif, which doesn't match the logo at all — tried that
+       first, wrong direction) or the original thin Inter (too flimsy). */
     .h1-line{
-      display:block;font-family:var(--font-d);
-      font-weight:600;letter-spacing:-.01em;line-height:1.08;color:var(--ink);
+      display:block;font-family:'Poppins',sans-serif;
+      font-weight:800;letter-spacing:-.01em;line-height:1.08;color:var(--ink);
       transform:translateY(108%);
       transition:transform 1.4s var(--ease-expo);
       will-change:transform;
     }
-    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:600}
+    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:800}
     .h1-line-2{font-family:var(--font-b);font-size:clamp(1.2rem,2.2vw,2.2rem);font-style:italic;font-weight:500;color:var(--orange);transition-delay:.5s;letter-spacing:-.01em}
-    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:600}
+    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:800}
     .hero.started .h1-line{transform:translateY(0)}
     .hero-desc{
       font-size:var(--t-body);font-weight:400;color:var(--ink-2);
@@ -1439,8 +1439,10 @@
         // up much longer — through the curtain close AND the bairros reveal —
         // so it properly "replaces" the video's own logo for the rest of the
         // sequence instead of flashing briefly. Only fades out at the very end,
-        // just before the pin releases.
+        // just before the pin releases. It also scales up continuously while
+        // visible, echoing the slow push-in the original clip's camera had.
         .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.6},11.3)
+        .fromTo('#heroLogoReveal img',{scale:.55},{scale:1.05,duration:2.6,ease:'none'},11.3)
         .to('#heroLogoReveal',{opacity:0,duration:.6},13.3)
         // Exit: content rises and fades — starts together with the reveal so the
         // headline is gone (not ghosting) well before the curtain finishes closing
@@ -1469,7 +1471,7 @@
       // the scrub from ever reaching that stretch, so only the sharp aerial
       // footage plays and the crisp #heroLogoReveal PNG is what "replaces" the
       // video's own logo, never the blurry one underneath it.
-      var VIDEO_END_MARGIN = 4.0; // seconds trimmed off the end of the scrub range
+      var VIDEO_END_MARGIN = 2.0; // seconds trimmed off the end of the scrub range
       ScrollTrigger.create({
         animation:tl,
         trigger:'#hero',
