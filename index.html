@@ -326,16 +326,20 @@
     .t-clip{overflow:hidden}
     /* Sem text-shadow: as duas sombras aqui existiam para destacar texto BRANCO
        sobre foto escura. Sobre o scrim claro elas só sujam as bordas da letra. */
+    /* Headline now uses the same Cinzel serif as every other display heading on
+       the site (props-title, invest-title, fc-title, hi-headline all do) —
+       previously this was the only heading set in thin Inter, which read as
+       flimsy/inconsistent next to the rest of the page's typographic voice. */
     .h1-line{
-      display:block;font-family:var(--font-b);
-      font-weight:300;letter-spacing:-.03em;line-height:1.04;color:var(--ink);
+      display:block;font-family:var(--font-d);
+      font-weight:600;letter-spacing:-.01em;line-height:1.08;color:var(--ink);
       transform:translateY(108%);
       transition:transform 1.4s var(--ease-expo);
       will-change:transform;
     }
-    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:300}
-    .h1-line-2{font-size:clamp(1.2rem,2.2vw,2.2rem);font-style:italic;font-weight:300;color:var(--orange);transition-delay:.5s}
-    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:300}
+    .h1-line-1{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.35s;color:var(--ink);font-weight:600}
+    .h1-line-2{font-family:var(--font-b);font-size:clamp(1.2rem,2.2vw,2.2rem);font-style:italic;font-weight:500;color:var(--orange);transition-delay:.5s;letter-spacing:-.01em}
+    .h1-line-3{font-size:clamp(2.5rem,5vw,5rem);transition-delay:.42s;color:var(--ink);font-weight:600}
     .hero.started .h1-line{transform:translateY(0)}
     .hero-desc{
       font-size:var(--t-body);font-weight:400;color:var(--ink-2);
@@ -1428,14 +1432,13 @@
         .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
         // Overlay some cedo para revelar logo do vídeo em cores totais
         .to('.hero-ov',{opacity:0,duration:0.3},11.0)
-        // Crisp logo fades in over the same reveal, then back out well before
-        // the curtain (which starts at 11.3) finishes closing at 12.5.
-        // Delayed to 11.8 (headline is ~2/3 faded by then) so the crisp logo
-        // doesn't sit visibly stacked on top of the still-legible headline —
-        // an earlier version started this at 11.0, at full headline opacity,
-        // which just traded one overlap for another.
-        .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.5},11.8)
-        .to('#heroLogoReveal',{opacity:0,duration:.5},12.6)
+        // Crisp logo now fades in right as the curtain starts (11.3) and stays
+        // up much longer — through the curtain close AND the bairros reveal —
+        // so it properly "replaces" the video's own logo for the rest of the
+        // sequence instead of flashing briefly. Only fades out at the very end,
+        // just before the pin releases.
+        .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.6},11.3)
+        .to('#heroLogoReveal',{opacity:0,duration:.6},13.3)
         // Exit: content rises and fades — starts together with the reveal so the
         // headline is gone (not ghosting) well before the curtain finishes closing
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.0)
@@ -1457,6 +1460,13 @@
       // VIDEO_OFFSET: first 15% of scroll is reserved for poster fade —
       // video stays at frame 0 during that window, then advances normally.
       var VIDEO_OFFSET = 0.15;
+      // The source clip's own baked-in "Viva Vendas" wordmark starts appearing
+      // around 25.8s into the 29.77s clip (checked frame-by-frame) — the footage
+      // is soft-focus there regardless of encode quality. VIDEO_END_MARGIN keeps
+      // the scrub from ever reaching that stretch, so only the sharp aerial
+      // footage plays and the crisp #heroLogoReveal PNG is what "replaces" the
+      // video's own logo, never the blurry one underneath it.
+      var VIDEO_END_MARGIN = 4.0; // seconds trimmed off the end of the scrub range
       ScrollTrigger.create({
         animation:tl,
         trigger:'#hero',
@@ -1467,7 +1477,8 @@
         onUpdate:function(self){
           if(video.readyState>=2&&video.duration){
             var p = Math.max(0, (self.progress - VIDEO_OFFSET) / (1 - VIDEO_OFFSET));
-            video.currentTime = p * video.duration;
+            var maxTime = Math.max(0, video.duration - VIDEO_END_MARGIN);
+            video.currentTime = Math.min(p * video.duration, maxTime);
           }
         }
       });
