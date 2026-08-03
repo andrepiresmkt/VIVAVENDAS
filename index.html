@@ -257,6 +257,14 @@
       background:rgba(248,246,241,1);
       opacity:0;pointer-events:none;
     }
+    /* Crisp logo overlay — sits between the fade and the curtain so the closing
+       curtain still covers it; see comment near its markup for why it exists. */
+    #heroLogoReveal{
+      position:absolute;inset:0;z-index:3;
+      display:flex;align-items:center;justify-content:center;
+      opacity:0;pointer-events:none;
+    }
+    #heroLogoReveal img{width:clamp(150px,18vw,240px);height:auto;display:block}
     /* Layer 5: end-of-scroll impact text */
     #heroImpact{
       position:absolute;inset:0;z-index:6;
@@ -914,6 +922,13 @@
   </div>
   <div class="hero-ov"></div>
   <div class="hero-fade-b"></div>
+  <!-- The source clip's own baked-in "Viva Vendas" wordmark (in the clouds shot
+       near the end of hero-video.mp4) is soft/out-of-focus footage — no amount of
+       re-encoding fixes that, it's in the source. So instead of unmasking that
+       blurry moment, we overlay the crisp brand PNG in the same spot, timed to
+       the same beat the video reveals its true colors, and fade it out again
+       before the curtain closes. -->
+  <div id="heroLogoReveal"><img src="img/logo-viva.png" alt="Viva Vendas" width="900" height="414"></div>
   <div class="hero-curtain" id="heroCurtain"></div>
   <div id="heroImpact">
     <p class="hi-sub">Camboinhas &middot; Piratininga &middot; Itacoatiara &middot; Charitas &middot; São Francisco &middot; Icaraí &middot; Ingá</p>
@@ -1413,10 +1428,19 @@
         .fromTo('.hl-scene-3',{autoAlpha:0,y:70},{autoAlpha:1,y:0,duration:1},7.3)
         // Overlay some cedo para revelar logo do vídeo em cores totais
         .to('.hero-ov',{opacity:0,duration:0.3},11.0)
+        // Crisp logo fades in over the same reveal, then back out well before
+        // the curtain (which starts at 11.3) finishes closing at 12.5
+        .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.4},11.0)
+        .to('#heroLogoReveal',{opacity:0,duration:.5},11.7)
         // Exit: content rises and fades — starts together with the reveal so the
         // headline is gone (not ghosting) well before the curtain finishes closing
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.0)
         .to('.hero-nums',{autoAlpha:0,y:20,duration:.8},11.0)
+        // The "Scroll" prompt (.scroll-prompt) was never faded out by this timeline,
+        // so it kept sitting bottom-center and overlapped the bairros text below —
+        // this is the literal "Scroll" word the ghosting screenshot showed jumbled
+        // in with the neighborhood names. Fade it out with the rest of the exit.
+        .to('.scroll-prompt',{autoAlpha:0,duration:.6},11.0)
         // Curtain only starts once the color reveal window has passed, and fully
         // closes (opacity 1) BEFORE the bairros text starts fading in — previously
         // these overlapped, producing illegible layered text mid-scroll
