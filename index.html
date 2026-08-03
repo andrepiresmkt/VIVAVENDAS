@@ -1429,9 +1429,13 @@
         // Overlay some cedo para revelar logo do vídeo em cores totais
         .to('.hero-ov',{opacity:0,duration:0.3},11.0)
         // Crisp logo fades in over the same reveal, then back out well before
-        // the curtain (which starts at 11.3) finishes closing at 12.5
-        .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.4},11.0)
-        .to('#heroLogoReveal',{opacity:0,duration:.5},11.7)
+        // the curtain (which starts at 11.3) finishes closing at 12.5.
+        // Delayed to 11.8 (headline is ~2/3 faded by then) so the crisp logo
+        // doesn't sit visibly stacked on top of the still-legible headline —
+        // an earlier version started this at 11.0, at full headline opacity,
+        // which just traded one overlap for another.
+        .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.5},11.8)
+        .to('#heroLogoReveal',{opacity:0,duration:.5},12.6)
         // Exit: content rises and fades — starts together with the reveal so the
         // headline is gone (not ghosting) well before the curtain finishes closing
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.0)
