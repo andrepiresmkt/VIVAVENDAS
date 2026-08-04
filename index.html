@@ -1470,9 +1470,12 @@
       // de ter fluidez real é deixar o vídeo TOCAR, que é o caminho de decode
       // otimizado do navegador. Agora a timeline é que segue o vídeo.
       //
-      // O wordmark borrado embutido no clipe começa ~2s antes do fim, então
-      // paramos antes disso e seguramos o logo nítido no último quadro.
-      var VIDEO_END_MARGIN = 2.0;
+      // O corte dos 2s finais (onde aparece o wordmark borrado do clipe) agora
+      // está no PRÓPRIO arquivo: hero-video.mp4 foi remuxado para 27,8s. Fazer
+      // o corte no arquivo em vez de aqui evita baixar 2s de vídeo que nunca
+      // seriam exibidos. Por isso a margem aqui é 0 — cortar de novo tiraria
+      // 2s a mais do que o pedido.
+      var VIDEO_END_MARGIN = 0;
       tl.pause();
 
       function stopTime(){
