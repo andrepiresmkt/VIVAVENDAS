@@ -922,7 +922,10 @@
 
 <!-- ──── HERO ──── -->
 <section class="hero" id="hero">
-  <video class="hero-canvas" id="heroVideo" muted playsinline preload="auto" src="hero-video.mp4?v=20260802"></video>
+  <!-- Sem "autoplay": o play é disparado por JS no fim do loader, para que a
+       timeline comece do quadro 0 junto com o texto. Com o atributo autoplay o
+       vídeo já teria avançado ~2s durante o loader e a intro entraria cortada. -->
+  <video class="hero-canvas" id="heroVideo" muted playsinline preload="auto" src="hero-video.mp4?v=20260804"></video>
   <div id="heroPoster">
     <img src="img/wp/hero-poster.jpg"
          alt="" aria-hidden="true" fetchpriority="high" decoding="async">
@@ -1378,27 +1381,27 @@
     const hero = document.getElementById('hero');
     hero.classList.add('started');
 
-    // Hero poster: fades out on scroll down, fades back in when back at top
+    // Hero poster: cobre o vídeo enquanto ele ainda não começou (evita o flash
+    // de quadro preto). Agora que o vídeo TOCA sozinho, o gatilho não é mais o
+    // scroll e sim o próprio play — senão o poster ficaria por cima escondendo
+    // o vídeo inteiro em quem não rolasse a página.
     (function(){
       var poster = document.getElementById('heroPoster');
-      if(!poster) return;
-      var visible = true;
-      var tween = null;
-      var THRESHOLD = 10;
+      var video  = document.getElementById('heroVideo');
+      if(!poster || !video) return;
+      var done = false;
+      function hidePoster(){
+        if(done) return;
+        done = true;
+        gsap.to(poster, {opacity:0, duration:1.0, ease:'power2.inOut',
+          onComplete:function(){ poster.style.display='none'; }
+        });
+      }
+      video.addEventListener('playing', hidePoster, {once:true});
+      // Rede de segurança: se o autoplay for bloqueado, o poster continua sendo
+      // a imagem de fundo (melhor do que uma tela preta), mas some ao rolar.
       window.addEventListener('scroll', function(){
-        var atTop = window.scrollY <= THRESHOLD;
-        if(atTop && !visible){
-          visible = true;
-          poster.style.display = '';
-          if(tween) tween.kill();
-          tween = gsap.to(poster, {opacity:1, duration:1.2, ease:'power2.inOut'});
-        } else if(!atTop && visible){
-          visible = false;
-          if(tween) tween.kill();
-          tween = gsap.to(poster, {opacity:0, duration:1.5, ease:'power2.inOut',
-            onComplete: function(){ if(!visible) poster.style.display='none'; }
-          });
-        }
+        if(window.scrollY > 10) hidePoster();
       }, {passive:true});
     })();
 
@@ -1418,11 +1421,8 @@
       var video=document.getElementById('heroVideo');
       if(!video)return;
 
-      // Show first frame immediately once metadata loaded
-      video.addEventListener('loadedmetadata',function(){
-        video.currentTime=0;
-      },{once:true});
-      video.load();
+      // Nada de video.load() aqui: ele descartaria o buffer que o preload="auto"
+      // já montou durante o loader, e o play sairia engasgado.
 
       // Scene initial states: scenes 2 & 3 start hidden below
       gsap.set(['.hl-scene-2','.hl-scene-3'],{autoAlpha:0,y:70});
@@ -1442,8 +1442,7 @@
         // just before the pin releases. It also scales up continuously while
         // visible, echoing the slow push-in the original clip's camera had.
         .fromTo('#heroLogoReveal',{opacity:0},{opacity:1,duration:.6},11.3)
-        .fromTo('#heroLogoReveal img',{scale:.55},{scale:1.05,duration:2.6,ease:'none'},11.3)
-        .to('#heroLogoReveal',{opacity:0,duration:.6},13.3)
+        .fromTo('#heroLogoReveal img',{scale:.5},{scale:1.05,duration:2.6,ease:'none'},11.3)
         // Exit: content rises and fades — starts together with the reveal so the
         // headline is gone (not ghosting) well before the curtain finishes closing
         .to('.hero-inner',{autoAlpha:0,y:-40,duration:1.2},11.0)
@@ -1461,32 +1460,63 @@
         // is fully opaque so it reads on a clean background
         .fromTo('#heroImpact',{opacity:0,y:12},{opacity:1,y:0,duration:1.2,ease:'power2.out'},12.5);
 
-      // Pin hero, scrub timeline + video in sync
-      // VIDEO_OFFSET: first 15% of scroll is reserved for poster fade —
-      // video stays at frame 0 during that window, then advances normally.
-      var VIDEO_OFFSET = 0.15;
-      // The source clip's own baked-in "Viva Vendas" wordmark starts appearing
-      // around 25.8s into the 29.77s clip (checked frame-by-frame) — the footage
-      // is soft-focus there regardless of encode quality. VIDEO_END_MARGIN keeps
-      // the scrub from ever reaching that stretch, so only the sharp aerial
-      // footage plays and the crisp #heroLogoReveal PNG is what "replaces" the
-      // video's own logo, never the blurry one underneath it.
-      var VIDEO_END_MARGIN = 2.0; // seconds trimmed off the end of the scrub range
-      ScrollTrigger.create({
-        animation:tl,
-        trigger:'#hero',
-        start:'top top',
-        end:'+='+(window.innerHeight*4.2),
-        pin:true,
-        scrub:0.8,
-        onUpdate:function(self){
-          if(video.readyState>=2&&video.duration){
-            var p = Math.max(0, (self.progress - VIDEO_OFFSET) / (1 - VIDEO_OFFSET));
-            var maxTime = Math.max(0, video.duration - VIDEO_END_MARGIN);
-            video.currentTime = Math.min(p * video.duration, maxTime);
+      // ── Reprodução NATIVA (não mais scroll-scrub) ──
+      // Antes o vídeo era "scrubado" setando video.currentTime a cada evento de
+      // scroll. Isso obriga o navegador a fazer um seek a cada quadro, e um h264
+      // comum só tem keyframe a cada ~2-5s — para qualquer tempo entre eles ele
+      // precisa decodificar desde o keyframe anterior. Na prática o Chrome
+      // desiste e mostra só os keyframes: daí a sensação de "poucos frames",
+      // travado, sem fluidez. Nenhum ajuste de scrub resolve isso; a única forma
+      // de ter fluidez real é deixar o vídeo TOCAR, que é o caminho de decode
+      // otimizado do navegador. Agora a timeline é que segue o vídeo.
+      //
+      // O wordmark borrado embutido no clipe começa ~2s antes do fim, então
+      // paramos antes disso e seguramos o logo nítido no último quadro.
+      var VIDEO_END_MARGIN = 2.0;
+      tl.pause();
+
+      function stopTime(){
+        return Math.max(0.1, (video.duration || 0) - VIDEO_END_MARGIN);
+      }
+
+      // A timeline inteira é mapeada sobre o trecho tocável do vídeo, então
+      // texto e imagem andam juntos sem depender do scroll.
+      var rafId = null;
+      function syncLoop(){
+        if(video.duration){
+          var stop = stopTime();
+          var p = Math.min(video.currentTime / stop, 1);
+          tl.progress(p);
+          if(video.currentTime >= stop){
+            video.pause();
+            tl.progress(1);          // segura no último quadro: logo cheio
+            cancelAnimationFrame(rafId);
+            return;
           }
         }
-      });
+        rafId = requestAnimationFrame(syncLoop);
+      }
+
+      function startHero(){
+        try{ video.currentTime = 0; }catch(e){}
+        var pr = video.play();
+        if(pr && pr.catch){
+          // Se o autoplay for bloqueado, mostramos o estado final em vez de
+          // deixar o hero congelado no primeiro quadro.
+          pr.catch(function(){ tl.progress(1); });
+        }
+        if(rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(syncLoop);
+      }
+
+      // prefers-reduced-motion: nada de vídeo tocando; vai direto ao logo.
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        tl.progress(1);
+      } else if(video.readyState >= 2){
+        startHero();
+      } else {
+        video.addEventListener('loadeddata', startHero, {once:true});
+      }
     })();
 
     // Metrics band: slide up from invisible as it enters viewport after hero pin
