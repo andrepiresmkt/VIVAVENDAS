@@ -1512,13 +1512,26 @@
         rafId = requestAnimationFrame(syncLoop);
       }
 
-      // prefers-reduced-motion: nada de vídeo tocando; vai direto ao logo.
+      // Só arranca com a aba visível. Em aba de fundo o Chrome não roda
+      // requestAnimationFrame e adia o carregamento de mídia — sem esta guarda,
+      // quem abre o link em nova aba cairia no catch do play() e veria o hero
+      // já no estado final, perdendo a intro inteira.
+      function armHero(){
+        if(video.readyState >= 2) startHero();
+        else video.addEventListener('loadeddata', startHero, {once:true});
+      }
+
       if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        // prefers-reduced-motion: nada de vídeo tocando; vai direto ao logo.
         tl.progress(1);
-      } else if(video.readyState >= 2){
-        startHero();
+      } else if(!document.hidden){
+        armHero();
       } else {
-        video.addEventListener('loadeddata', startHero, {once:true});
+        document.addEventListener('visibilitychange', function onVis(){
+          if(document.hidden) return;
+          document.removeEventListener('visibilitychange', onVis);
+          armHero();
+        });
       }
     })();
 
